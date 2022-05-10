@@ -1,0 +1,87 @@
+@page
+@model ZealandMarketplace.Pages.Auth.Register
+
+@{
+    Layout = null;
+}
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+    <link rel="preconnect" href="https://fonts.gstatic.com"> 
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/register.css">
+    <link rel="stylesheet" href="~/css/headerFooter.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zealand MarketPlace</title>
+   
+    
+</head>
+<body>
+
+
+<header class="header">   
+    <p>Zealand Marketplace</p>
+</header>
+
+
+<div class="container_register">
+    <div class="register_area">
+        
+        <div>
+            <form>
+                <div class="register_item">
+                    <input class="input_item" type="text" name="FirstInput" placeholder="First Name"><br>
+                    <input class="input_item1" type="text" name="LastInput" placeholder="Last Name"><br>
+                </div>
+
+                <div class="register_item">
+                    <input class="input_item" type="text" name="EmailInput" placeholder="Email"><br>
+                    <input class="input_item1" type="text" name="NumberInput" placeholder="Tel Number"><br>
+                </div>
+
+                <div class="register_item">
+                    <input class="input_item" type="password" name="PasswordInput" placeholder="Password"><br>
+                    <input class="input_item1" type="password" name="ConfirmPasswordInput" placeholder="Confirm Password"><br>
+                </div>
+
+                <div class="register_button">
+                    <input type="submit" name="LoginButton" value="Sign up">
+                </div>
+            </form>
+        </div>
+
+
+
+
+
+
+        <div class="container_link">
+                <div class="link_login">
+                    <div>
+                        <span>Already have an account?</span>
+                        <a asp-page="/Auth/Login">Login now</a>
+                    </div>
+                </div>
+        </div>
+
+
+    </div>
+        
+</div>
+
+
+
+
+<footer class="footer">
+    <p>Copyright © 2022 Zealand Marketplace</p>
+</footer>
+
+</body>
+</html>

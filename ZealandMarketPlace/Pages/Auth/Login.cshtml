@@ -1,0 +1,51 @@
+@page
+@model ZealandMarketplace.Pages.Auth.Login
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+    <link rel="preconnect" href="https://fonts.gstatic.com"> 
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/login.css">
+    <link rel="stylesheet" href="~/css/headerFooter.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zealand MarketPlace</title>
+   
+    
+</head>
+<body>
+
+<header class="header">   
+    <p>Zealand Marketplace</p>
+</header>
+
+
+<div class="container_login">
+    <div class="login_area">
+        <form>
+            <input type="text" name="EmailInput" placeholder="Email"><br>
+            <input type="password" name="PasswordInput" placeholder="Password"><br>
+            <input type="submit" name="LoginButton" value="Login">
+
+        </form>
+         <div class="link_registration">
+                <span>New Member?</span>
+             <a asp-page="/Auth/Register">Sign up now</a>
+         </div>
+    </div>
+</div>
+
+<footer class="footer">
+    <p>Copyright © 2022 Zealand Marketplace</p>
+</footer>
+
+</body>
+</html>
