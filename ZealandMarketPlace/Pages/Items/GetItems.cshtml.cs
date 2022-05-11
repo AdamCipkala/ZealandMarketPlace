@@ -12,11 +12,13 @@ namespace ZealandMarketPlace.Pages.Items
     public class GetItemsModel : PageModel
     {
         private IItemService itemService;
-        public IEnumerable<Item> items { get; set; } 
+        public IEnumerable<Item> items { get; set; }
+       
         public GetItemsModel(IItemService service)
         {
             itemService = service;
         }
+        
         public void OnGet()
         {
             items = itemService.GetAllItems();
