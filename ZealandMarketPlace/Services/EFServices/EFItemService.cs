@@ -19,6 +19,10 @@ namespace ZealandMarketPlace.Services.EFServices
         {
             return context.Items;
         }
+        public Item GetItemDetails(int itemId)
+        {
+            return (Item)context.Items.Where(item => item.ItemId == itemId);
+        }
 
         public void AddItem(Item item)
         {
@@ -26,19 +30,19 @@ namespace ZealandMarketPlace.Services.EFServices
             context.SaveChanges();
         }
 
-        public List<Item> FilterByCategory(Category category)
+        public IEnumerable<Item> FilterByCategory(Category category)
         {
-            return context.Items.Where(item => item.Category.Equals(category)).ToList();
+            return context.Items.Where(item => item.Category.Equals(category));
         }
 
-        public List<Item> FilterByPrice(double minPrice, double maxPrice)
+        public IEnumerable<Item> FilterByPrice(double minPrice, double maxPrice)
         {
-            return context.Items.Where(item => item.Price >= minPrice && item.Price <= maxPrice).ToList();
+            return context.Items.Where(item => item.Price >= minPrice && item.Price <= maxPrice);
         }
 
-        public List<Item> SearchItem(string name)
+        public IEnumerable<Item> SearchItem(string name)
         {
-            return context.Items.Where(item => item.Name.Contains(name)).ToList();
+            return context.Items.Where(item => item.Name.Contains(name));
         }
 
 

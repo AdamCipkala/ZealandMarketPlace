@@ -2,20 +2,16 @@
 @model ZealandMarketPlace.Pages.Items.GetItemsModel
 @{
 }
-<h1>Items</h1>
-<p>
-    <a asp-page="/Students/WaitingList">Waiting List</a>
-</p>
+<div class="col-3">
+    <div class="row">
         @foreach (var item in Model.items)
         {
             <div>
                 <p> @item.Image </p>
                 <h5> @item.Name </h5>
                 <h6> @item.Price </h6>
-                <p> @item.Category </p>
-                @*<a asp-page="/Students/GetLeasings" asp-route-studentNo="@item.StudentNo" class="btn btn-success">Leasing</a>
-                <td>
-                    <a asp-page="/Students/DeleteStudent" asp-route-studentNo="@item.StudentNo">Delete</a>
-                </td>*@
+                <a asp-page="/Items/ItemDetails" asp-route-itemId="@item.ItemId" class="btn btn-success">Details</a>
             </div>
         }
+    </div>
+</div>

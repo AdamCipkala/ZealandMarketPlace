@@ -11,6 +11,8 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using ZealandMarketPlace.Models;
 using Microsoft.AspNetCore.Identity;
+using ZealandMarketPlace.Services.Interfaces;
+using ZealandMarketPlace.Services.EFServices;
 
 namespace ZealandMarketPlace
 {
@@ -27,6 +29,8 @@ namespace ZealandMarketPlace
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+
+            services.AddScoped<IItemService, EFItemService>();
 
             //services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<MarketPlaceDbContext>();
 
