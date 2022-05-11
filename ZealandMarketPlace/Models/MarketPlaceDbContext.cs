@@ -17,6 +17,7 @@ namespace ZealandMarketPlace.Models
         {
         }
 
-        public DbSet<AppUser> AppUsers { get; set; }
+        public virtual DbSet<AppUser> AppUsers { get; set; }
+        public virtual DbSet<Item> Items { get; set; }
     }
 }

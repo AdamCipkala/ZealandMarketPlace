@@ -8,6 +8,7 @@ namespace ZealandMarketPlace.Models
 {
     public class AppUser: IdentityUser
     {
+        public int UserID { get; set; }
         public string Name { get; set; }
     }
 }
