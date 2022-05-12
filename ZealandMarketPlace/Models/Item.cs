@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -29,7 +29,7 @@ namespace ZealandMarketPlace.Models
         public Status Status { get; set; }
         [Required]
         public Category Category { get; set; }
-        public virtual AppUser User { get; set; }
+        public virtual ApplicationUser User { get; set; }
 
     }
 }
