@@ -1,16 +1,18 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace ZealandMarketplace.Pages.Auth;
-
-
-
-public class Register : PageModel
+namespace ZealandMarketPlace.Pages.Auth
 {
-    public void OnGet()
+
+
+
+    public class Register : PageModel
     {
-        
+        public void OnGet()
+        {
+
+        }
+
+
+
     }
-    
-    
-    
 }

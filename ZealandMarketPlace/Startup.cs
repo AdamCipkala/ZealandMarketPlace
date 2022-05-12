@@ -9,6 +9,9 @@ using ZealandMarketPlace.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore;
+using ZealandMarketPlace.Services.Interfaces;
+using ZealandMarketPlace.Services.EFServices;
+
 
 namespace ZealandMarketPlace
 {
@@ -71,6 +74,8 @@ namespace ZealandMarketPlace
                 options.AccessDeniedPath = "/Pages/Account/AccessDenied";
                 options.SlidingExpiration = true;
             });
+            services.AddScoped<IItemService, EFItemService>();
+
 
         }
 

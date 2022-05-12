@@ -1,0 +1,55 @@
+﻿@page
+@model ZealandMarketPlace.Pages.Items.ItemDetailsModel
+@{
+}
+<h2>Details of @Model.item.Name</h2>
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.item.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.item.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.item.Status)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.item.Status)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.item.Descritpion)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.item.Descritpion)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.item.Category)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayTextFor(model => model.item.Category)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.item.Price)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.item.Price)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.item.Image)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.item.Image)
+        </dd>        
+    </dl>
+    <form method="post">
+        <div>
+            <input type="submit" value="Contact" class="btn btn-warning" />
+        </div>
+    </form>
+    <br />
+    <div>
+        <a asp-page="/Items/GetItems">Back to List</a>
+    </div>
+</div>

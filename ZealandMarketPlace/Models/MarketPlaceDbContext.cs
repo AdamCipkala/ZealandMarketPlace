@@ -16,9 +16,13 @@ public class MarketPlaceDbContext : IdentityDbContext<IdentityUser, IdentityRole
     }
 
     public MarketPlaceDbContext(DbContextOptions<MarketPlaceDbContext> options)
-        : base(options)
-    {
+        : base(options){
+        
     }
+    
+    public virtual DbSet<Item> Items { get; set; }
+
+    
 
     public DbSet<ApplicationUser> ApplicationUsers { get; set; }
     public DbSet<IdentityUserClaim<string>> IdentityUserClaims { get; set; }
