@@ -1,4 +1,39 @@
 ﻿@page
 @model ZealandMarketPlace.Pages.Items.AddItemModel
 @{
+    Layout = null;
 }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <link rel="preconnect" href="https://fonts.gstatic.com"> 
+       <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+       <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+       <link rel="stylesheet" href="~/css/addItem.css">
+       <link rel="stylesheet" href="~/css/headerFooter.css">
+       <meta charset="UTF-8">
+       <meta http-equiv="X-UA-Compatible" content="IE=edge">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title>Zealand MarketPlace</title>
+</head>
+<body>
+
+<header class="header">   
+    <p>Zealand Marketplace</p>
+</header>
+        <form method="post" asp-page="AddItem" id="first">
+                <label asp-for="@Model.Item.Name">Name</label>
+                <input asp-for="@Model.Item.Name" id="name" placeholder="Name" type="text">
+                <label asp-for="@Model.Item.Descritpion">Descritpion</label>
+                <input asp-for="@Model.Item.Descritpion" id="email" placeholder="Descritpion" type="text">
+                <label asp-for="@Model.Item.Price">Price</label>
+                <input asp-for="@Model.Item.Price" id="contact" placeholder="Contact Number" type="text">
+            <input id="submit" type="submit" value="Submit">
+        </form>
+   
+<footer class="footer">
+    <p>Copyright © 2022 Zealand Marketplace</p>
+</footer>
+
+</body>
+</html>
