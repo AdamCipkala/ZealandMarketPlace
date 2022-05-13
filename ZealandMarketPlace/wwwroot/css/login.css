@@ -42,7 +42,7 @@ body{
     color: #A8A8A8;
 }
 
-.login_area input[type="submit"]
+.login_area button[type="submit"]
 {
     margin:0;
     height: 55px;

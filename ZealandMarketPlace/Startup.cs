@@ -41,6 +41,8 @@ namespace ZealandMarketPlace
             {
                 options.AddPolicy("RequireAdministratorRole",
                     policy => policy.RequireRole("Administrator"));
+                options.AddPolicy("RequireSubscriberRole",
+                    policy => policy.RequireRole("Subscriber"));
             });
             
             services.Configure<IdentityOptions>(options =>
@@ -48,7 +50,7 @@ namespace ZealandMarketPlace
                 // Password settings.
                 options.Password.RequireDigit = true;
                 options.Password.RequireLowercase = true;
-                options.Password.RequireNonAlphanumeric = true;
+                options.Password.RequireNonAlphanumeric = false;
                 options.Password.RequireUppercase = true;
                 options.Password.RequiredLength = 6;
                 options.Password.RequiredUniqueChars = 1;
@@ -70,8 +72,8 @@ namespace ZealandMarketPlace
                 options.Cookie.HttpOnly = true;
                 options.ExpireTimeSpan = TimeSpan.FromMinutes(5);
 
-                options.LoginPath = "/Pages/Account/Login";
-                options.AccessDeniedPath = "/Pages/Account/AccessDenied";
+                options.LoginPath = "/Identity/Account/Login";
+                options.AccessDeniedPath = "/Identity/Account/AccessDenied";
                 options.SlidingExpiration = true;
             });
             services.AddScoped<IItemService, EFItemService>();

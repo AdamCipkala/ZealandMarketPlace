@@ -7,7 +7,10 @@ using Microsoft.EntityFrameworkCore;
 using ZealandMarketPlace.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
-namespace ZealandMarketPlace.Models;
+namespace ZealandMarketPlace.Models
+{
+    
+
 
 public class MarketPlaceDbContext : IdentityDbContext<IdentityUser, IdentityRole, string>
 {
@@ -28,4 +31,5 @@ public class MarketPlaceDbContext : IdentityDbContext<IdentityUser, IdentityRole
     public DbSet<IdentityUserClaim<string>> IdentityUserClaims { get; set; }
     public DbSet<IdentityUserRole<string>> IdentityUserRoles { get; set; }
 
+}
 }
