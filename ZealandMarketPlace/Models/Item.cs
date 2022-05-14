@@ -23,7 +23,7 @@ namespace ZealandMarketPlace.Models
         [StringLength(200,ErrorMessage ="Description is too long")]
         public string Descritpion { get; set; }
         
-        public string Image { get; set; }
+        public byte[] ImageData { get; set; }
         
         [Required]
         [Range(0.01,100000.00, ErrorMessage ="Price must be between 0.01 and 100000.00")]

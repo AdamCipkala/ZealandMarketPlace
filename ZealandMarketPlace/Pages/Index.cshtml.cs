@@ -17,9 +17,8 @@ namespace ZealandMarketPlace.Pages
             _logger = logger;
         }
 
-        public IActionResult OnGet()
+        public void OnGet()
         {
-            return RedirectToPage("/Items/AddItem");
         }
     }
 }

@@ -17,39 +17,32 @@
         <title>Zealand MarketPlace</title>
     </head>
     <body>
-
-    <header class="header">   
-        <p>Zealand Marketplace</p>
-    </header>
-    <form method="post" asp-page="AddItem" id="first">
-        <div class="form-container">
-            <div class="info-container">
-                <label asp-for="@Model.Item.Name">Name</label>
-                <input asp-for="@Model.Item.Name" id="name" placeholder="Name" type="text">
-                <label asp-for="@Model.Item.Descritpion">Descritpion</label>
-                <textarea asp-for="@Model.Item.Descritpion" id="email" placeholder="Describe your product" rows="4" cols="50"></textarea>
-                <label asp-for="@Model.Item.Price">Price</label>
-                <input asp-for="@Model.Item.Price" id="contact" placeholder="Price in dkk" type="text">
-                <label asp-for="@Model.Item.Category">Category</label>
-                <div class="category-container">
-                    <select id="category">
-                        @foreach (var category in (Category[])Enum.GetValues(typeof(Category)))
-                        {
-                            <option value="@category">@category</option>
-                        }
-                    </select>
-                    <input id="submit" type="image" src="~/images/add_circle.png" alt="Add">
+        <form method="post" asp-page="AddItem" id="first" enctype="multipart/form-data">
+            <div class="form-container">
+                <div class="info-container">
+                    <label asp-for="@Model.Item.Name">Name</label>
+                    <input asp-for="@Model.Item.Name" id="name" placeholder="Name" type="text">
+                    <label asp-for="@Model.Item.Descritpion">Descritpion</label>
+                    <textarea asp-for="@Model.Item.Descritpion" id="email" placeholder="Describe your product" rows="4" cols="50"></textarea>
+                    <label asp-for="@Model.Item.Price">Price</label>
+                    <input asp-for="@Model.Item.Price" id="contact" placeholder="Price in dkk" type="text">
+                    <label asp-for="@Model.Item.Category">Category</label>
+                    <div class="category-container">
+                        <select id="category">
+                            @foreach (var category in (Category[])Enum.GetValues(typeof(Category)))
+                            {
+                                <option value="@category">@category</option>
+                            }
+                        </select>
+                        <input id="submit" type="image" src="~/images/add_circle.png" alt="Add">
+                    </div>
+                </div>
+                <div class="img-container">
+                    <input type="file" id="file1" 
+                               name="file1" 
+                               accept="image/png, image/gif, image/jpeg" />
                 </div>
             </div>
-            <div class="img-container"> Add imgages </div>
-        </div>
-        
-    </form>
-    
-           
-        <footer class="footer">
-            <p>Copyright © 2022 Zealand Marketplace</p>
-        </footer>
-
+        </form>
     </body>
 </html>

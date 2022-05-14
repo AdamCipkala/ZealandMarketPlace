@@ -11,17 +11,18 @@ namespace ZealandMarketPlace.Pages.Items
 {
     public class GetItemsModel : PageModel
     {
-        private IItemService itemService;
-        public IEnumerable<Item> items { get; set; }
+        private IItemService _itemService;
+        public IEnumerable<Item> Items { get; set; }
+        public string ImagePath { get; set; }
        
         public GetItemsModel(IItemService service)
         {
-            itemService = service;
+            _itemService = service;
         }
         
         public void OnGet()
         {
-            items = itemService.GetAllItems();
+            Items = _itemService.GetAllItems();
         }
     }
 }

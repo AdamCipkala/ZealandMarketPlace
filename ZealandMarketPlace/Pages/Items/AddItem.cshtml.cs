@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -25,11 +26,22 @@ namespace ZealandMarketPlace.Pages.Items
             return Page();
         }
         
+        [HttpPost]
         public IActionResult OnPost()
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
+            }
+            
+            foreach(var file in Request.Form.Files)
+            {
+                MemoryStream ms = new MemoryStream();
+                file.CopyTo(ms);
+                Item.ImageData = ms.ToArray();
+
+                ms.Close();
+                ms.Dispose();
             }
 
             Item.Status = Status.Available;

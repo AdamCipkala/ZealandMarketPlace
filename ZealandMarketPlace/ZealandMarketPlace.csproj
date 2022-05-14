@@ -21,4 +21,8 @@
     <Content Include="Areas\.DS_Store" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\css\getItems.css" />
+  </ItemGroup>
+
 </Project>
