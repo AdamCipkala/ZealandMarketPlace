@@ -1,17 +1,35 @@
 ﻿@page
 @model ZealandMarketPlace.Pages.Items.GetItemsModel
 @{
+    Layout = null;
 }
-<div class="col-3">
-    <div class="row">
-        @foreach (var item in Model.items)
-        {
-            <div>
-                <p> @item.Image </p>
-                <h5> @item.Name </h5>
-                <h6> @item.Price </h6>
-                <a asp-page="/Items/ItemDetails" asp-route-itemId="@item.ItemId" class="btn btn-success">Details</a>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="~/css/getItems.css">
+        <link rel="stylesheet" href="~/css/headerFooter.css">
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Zealand MarketPlace</title>
+    </head>
+    <body>
+        <div class="main-container">
+            <a asp-page="/Items/AddItem"> Add Item</a>
+            <div class="products-container">
+                @foreach (var item in Model.Items)
+                {
+                    <div class="item-container">
+                        <img src="data:image/png;base64,@Convert.ToBase64String(item.ImageData)" alt="img"/>
+                        <h5> @item.Name </h5>
+                        <h6> @item.Price </h6>
+                        <a asp-page="/Items/ItemDetails" asp-route-itemId="@item.ItemId" class="btn btn-success">Details</a>
+                    </div>
+                }
             </div>
-        }
-    </div>
-</div>
+        </div>
+    </body>
+</html>
