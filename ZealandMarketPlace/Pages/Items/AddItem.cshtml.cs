@@ -2,7 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using ZealandMarketPlace.Models;
@@ -10,6 +12,7 @@ using ZealandMarketPlace.Services.Interfaces;
 
 namespace ZealandMarketPlace.Pages.Items
 {
+    [Authorize]
     public class AddItemModel : PageModel
     {
         private IItemService itemService;
@@ -21,6 +24,7 @@ namespace ZealandMarketPlace.Pages.Items
         {
             itemService = iService;
         }
+
         public IActionResult OnGet()
         {
             return Page();
@@ -44,9 +48,8 @@ namespace ZealandMarketPlace.Pages.Items
                 ms.Dispose();
             }
 
-            Item.Status = Status.Available;
             Item.DateTime = DateTime.Now;
-            Item.Category = Category.Clothes;
+            Item.UserId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
             itemService.AddItem(Item);
             return RedirectToPage("../Index");
         }

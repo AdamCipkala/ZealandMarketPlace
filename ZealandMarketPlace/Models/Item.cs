@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -12,8 +13,9 @@ namespace ZealandMarketPlace.Models
         [Key]
         public int ItemId { get; set; }
         
-        [DisplayName("User")]
-        public int UserId { get; set; }
+        [ForeignKey("ApplicationUser")]
+        public string UserId { get; set; }
+        
         
         [Required(ErrorMessage ="An Item Name is required")]
         [StringLength(25, ErrorMessage ="Name is too long")]
@@ -31,9 +33,11 @@ namespace ZealandMarketPlace.Models
        
         public DateTime DateTime { get; set; }
         
+        [EnumDataType(typeof(Status))]
         public Status Status { get; set; }
         
         [Required]
+        [EnumDataType(typeof(Category))]
         public Category Category { get; set; }
         public virtual ApplicationUser User { get; set; }
 

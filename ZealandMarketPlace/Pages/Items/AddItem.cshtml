@@ -27,15 +27,14 @@
                     <label asp-for="@Model.Item.Price">Price</label>
                     <input asp-for="@Model.Item.Price" id="contact" placeholder="Price in dkk" type="text">
                     <label asp-for="@Model.Item.Category">Category</label>
-                    <div class="category-container">
-                        <select id="category">
-                            @foreach (var category in (Category[])Enum.GetValues(typeof(Category)))
-                            {
-                                <option value="@category">@category</option>
-                            }
-                        </select>
+                    <select asp-for="@Model.Item.Category" asp-items="Html.GetEnumSelectList<Category>()">
+                        <option selected="selected" value="">Please select category</option>
+                    </select>
+                    <select asp-for="@Model.Item.Status" asp-items="Html.GetEnumSelectList<Status>()">
+                        <option selected="selected" value="">Please select status</option>
+                    </select>
+                    
                         <input id="submit" type="image" src="~/images/add_circle.png" alt="Add">
-                    </div>
                 </div>
                 <div class="img-container">
                     <input type="file" id="file1" 
