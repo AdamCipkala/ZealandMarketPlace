@@ -43,19 +43,18 @@ nav li {
 }
 
 nav a {
-    color: #B8B8B8;
+    color: #26282E;
     font-size: 18px;
     text-transform: lowercase;
 }
 
 a:hover{
-    color: #415A77;
+    color: #6FB0F1;
+    
 }
 
-
-
 a.active{
-    color: #778DA9;
+    color: #3174CC;
 }
 
 #icon{
@@ -66,6 +65,14 @@ a.active{
     float: right;
     cursor:pointer;
     display: none;
+}
+
+
+.container_footer{
+    display: flex;
+    justify-content: center;
+    background: #F1F3F8;
+    
 }
 
 
