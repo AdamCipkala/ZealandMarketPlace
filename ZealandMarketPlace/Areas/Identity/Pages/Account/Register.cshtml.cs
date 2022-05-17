@@ -49,6 +49,16 @@ namespace ZealandMarketPlace.Areas.Identity.Pages.Account
             [EmailAddress]
             [Display(Name = "Email")]
             public string Email { get; set; }
+            
+            [Display(Name = "FirstName")]
+            public string FirstName { get; set; }
+            
+            [Display(Name = "LateName")]
+            public string LateName { get; set; }
+            
+            [Phone]
+            [Display(Name = "PhoneNumber")]
+            public string Phone { get; set; }
 
             [Required]
             [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]

@@ -59,7 +59,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: space-between;
-   
+
 }
 
 .input_item,
@@ -83,7 +83,7 @@ body{
 
 .link_login{
     width: 45%;
-    
+
     display: flex;
     justify-content: space-between;
 
@@ -100,5 +100,3 @@ body{
     color: #1B263B;
 
 }
-
- 
