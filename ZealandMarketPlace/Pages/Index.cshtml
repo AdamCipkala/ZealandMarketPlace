@@ -10,25 +10,34 @@
     <section class="card_section">
         @foreach (var item in Model.Items)
         {
-            <div class="card_container">
-                <div class="card_image">
-                    <img alt="photo" src="data:image/png;base64,@Convert.ToBase64String(item.ImageData)">
-                </div>
+        <div class="card_container">
+            <div class="card_image">
+                <img alt="photo" src="data:image/png;base64,@Convert.ToBase64String(item.ImageData)">
+            </div>
 
-                <div class="card_text_content">
-                    <div class="card_title">
-                        <p class="text--medium">
-                            @item.Name
-                        </p>
-                        <p class="text--medium text_bold">
-                            @item.Price dkk
-                        </p>
-                    </div>
-                    <div class="card_info">
-                        <p class="text--medium">Patrik</p>
-                        <a asp-page="/Details" class="button_details">Details</a>
-                    </div>
+            <div class="card_text_content">
+                <div class="card_title">
+                    <p class="text--medium">
+                        @item.Name
+                    </p>
+                    <p class="text--medium text_bold">
+                        @item.Price dkk
+                    </p>
                 </div>
+                <div class="card_info">
+                    <p class="text--medium">Patrik</p>
+                    <a asp-page="/Details" class="button_details">Details</a>
+                </div>
+            </div>
+
+
+            @if (User.IsInRole("Administrator"))
+            {
+                <div class="button_delete_area">
+                    <a asp-page="/Items/DeleteItem" asp-route-itemId="@item.ItemId" class="button_delete">Delete</a>
+                </div>
+            }
+               
             </div>
         }
 
