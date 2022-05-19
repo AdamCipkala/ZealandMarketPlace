@@ -16,7 +16,6 @@ namespace ZealandMarketPlace.Models
         [ForeignKey("ApplicationUser")]
         public string UserId { get; set; }
         
-        
         [Required(ErrorMessage ="An Item Name is required")]
         [StringLength(25, ErrorMessage ="Name is too long")]
         public string Name { get; set; }

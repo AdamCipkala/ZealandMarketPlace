@@ -26,5 +26,7 @@ namespace ZealandMarketPlace.Models
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
         public DbSet<IdentityUserClaim<string>> IdentityUserClaims { get; set; }
         public DbSet<IdentityUserRole<string>> IdentityUserRoles { get; set; }
+        public DbSet<Review> Reviews { get; set; }
+        public DbSet<Order> Orders { get; set; }
     }
 }

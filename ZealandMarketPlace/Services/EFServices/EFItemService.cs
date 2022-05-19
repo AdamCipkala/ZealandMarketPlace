@@ -21,7 +21,7 @@ namespace ZealandMarketPlace.Services.EFServices
         }
         public Item GetItemDetails(int itemId)
         {
-            return (Item)context.Items.Where(item => item.ItemId == itemId);
+            return context.Items.FirstOrDefault(i => i.ItemId == itemId);
         }
 
         public void AddItem(Item item)

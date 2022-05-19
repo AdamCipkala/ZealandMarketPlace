@@ -9,17 +9,35 @@ using ZealandMarketPlace.Services.Interfaces;
 
 namespace ZealandMarketPlace.Pages.Items
 {
+    public enum ReviewEnum
+    {
+        One = 1,
+        Two = 2,
+        Three = 3,
+        Four = 4,
+        Five = 5,
+    }
+
     public class ItemDetailsModel : PageModel
     {
-        private IItemService itemService;
-        public Item item { get; set; }
+        private IItemService _itemService;
+        public Item Item { get; set; }
+        
+        [BindProperty]
+        public Review Review { get; set; }
+
         public ItemDetailsModel(IItemService service)
         {
-            itemService = service;
+            _itemService = service;
         }
-        public void OnGet(int itemId)
+
+        public void OnGet(int id)
         {
-            item = itemService.GetItemDetails(itemId);
+            Item = _itemService.GetItemDetails(id);
+            if (Item == null)
+            {
+                RedirectToPage("/NotFound");
+            }
         }
     }
 }
