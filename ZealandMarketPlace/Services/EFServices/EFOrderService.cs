@@ -3,47 +3,51 @@ using System.Linq;
 using ZealandMarketPlace.Models;
 using ZealandMarketPlace.Services.Interfaces;
 
-namespace ZealandMarketPlace.Services.EFServices;
-
-public class EFOrderService : IOrderService
+namespace ZealandMarketPlace.Services.EFServices
 {
-    private MarketPlaceDbContext context;
-    public EFOrderService(MarketPlaceDbContext dbContext)
-    {
-        context = dbContext;
-    }
 
-    public IEnumerable<Order> AllOrders()
-    {
-        return context.Orders;
-    }
 
-    public Order GetOrder(int id)
+    public class EFOrderService : IOrderService
     {
-        return context.Orders.FirstOrDefault(o => o.OrderId == id);
-    }
+        private MarketPlaceDbContext context;
 
-    public void AddOrder(Order order)
-    {
-        context.Orders.Add(order);
-        context.SaveChanges();
-    }
+        public EFOrderService(MarketPlaceDbContext dbContext)
+        {
+            context = dbContext;
+        }
 
-    public void DeleteOrder(int id)
-    {
-        context.Orders.Remove(GetOrder(id));
-        context.SaveChanges();
-    }
+        public IEnumerable<Order> AllOrders()
+        {
+            return context.Orders;
+        }
 
-    public IEnumerable<Order> GetUserOrders(string userId)
-    {
-        return context.Orders.Where(o => o.UserId == userId);
-    }
+        public Order GetOrder(int id)
+        {
+            return context.Orders.FirstOrDefault(o => o.OrderId == id);
+        }
 
-    public IEnumerable<Order> GetReceivedOrders(string userId)
-    {
-        return context.Orders.Where(o => o.ContactUser == userId);
+        public void AddOrder(Order order)
+        {
+            context.Orders.Add(order);
+            context.SaveChanges();
+        }
+
+        public void DeleteOrder(int id)
+        {
+            context.Orders.Remove(GetOrder(id));
+            context.SaveChanges();
+        }
+
+        public IEnumerable<Order> GetUserOrders(string userId)
+        {
+            return context.Orders.Where(o => o.UserId == userId);
+        }
+
+        public IEnumerable<Order> GetReceivedOrders(string userId)
+        {
+            return context.Orders.Where(o => o.ContactUser == userId);
+        }
+
+
     }
-    
-    
 }
