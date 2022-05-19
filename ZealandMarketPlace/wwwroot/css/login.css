@@ -47,13 +47,14 @@ body{
 
 .login_area input[type="submit"]
 {
-    margin:0;
+    
     height: 55px;
     border: none;
     outline: none;
     background: #3174CC;
     font-family: 'Courier Prime', monospace;
     font-size: 20px;
+    margin-bottom: 30px;
     color: #fff;
     cursor: pointer;
     border-radius: 12px;
