@@ -24,6 +24,12 @@ namespace ZealandMarketPlace.Services.EFServices
             return context.Items.FirstOrDefault(i => i.ItemId == itemId);
         }
 
+        public void UpdateItem(Item item)
+        {
+            context.Update(item);
+            context.SaveChanges();
+        }
+
         public void AddItem(Item item)
         {
             context.Items.Add(item);

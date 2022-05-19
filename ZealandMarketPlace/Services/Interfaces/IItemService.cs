@@ -16,5 +16,6 @@ namespace ZealandMarketPlace.Services.Interfaces
         IEnumerable<Item> SearchItem(string name);
 
         void DeleteItem(Item item);
+        void UpdateItem(Item item);
     }
 }
