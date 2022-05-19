@@ -1,4 +1,6 @@
 ﻿@page
+@using ZealandMarketPlace.Models
+@using Microsoft.AspNetCore.Mvc.TagHelpers
 @model ZealandMarketPlace.Pages.Items.ItemDetailsModel
 @{
 }
@@ -55,7 +57,7 @@
         <form method="post" asp-page-handler="OnPostReview">
             <label asp-for="@Model.Review.ReviewText">Review</label>
             <textarea asp-for="@Model.Review.ReviewText" id="reviewTest" placeholder="Write your review" rows="4" cols="50"></textarea>
-            <select asp-for="@Model.Review.Rating" asp-items="Html.GetEnumSelectList<ReviewEnum>()">
+            <select asp-for="@Model.Review.Rating" asp-items="Html.GetEnumSelectList<Rating>()">
                 <option selected="selected" value="">How many stars you will give?</option>
             </select>
             <div>

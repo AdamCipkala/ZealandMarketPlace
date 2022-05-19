@@ -9,14 +9,6 @@ using ZealandMarketPlace.Services.Interfaces;
 
 namespace ZealandMarketPlace.Pages.Items
 {
-    public enum ReviewEnum
-    {
-        One = 1,
-        Two = 2,
-        Three = 3,
-        Four = 4,
-        Five = 5,
-    }
 
     public class ItemDetailsModel : PageModel
     {
