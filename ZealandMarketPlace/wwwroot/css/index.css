@@ -22,10 +22,8 @@
     margin-top: 30px;
 }
 
-
 .container_search_box {
     width: 50%;
-
 }
 
 .box_search_box{
@@ -49,7 +47,6 @@
 }
 
 .main_option{
-
     font-size: 18px;
 }
 
@@ -102,7 +99,6 @@
     width: 70%;
     display: flex;
     align-items: center;
-
 }
 
 .input{
@@ -115,7 +111,6 @@
     background-color: transparent;
     resize: none;
     outline: none;
-
 }
 
 .fa-magnifying-glass{
@@ -133,13 +128,6 @@
     color: #78899F;
 }
 
-
-
-
-
-
-
-
 /*Grid section (cards)*/
 main{
     display: grid;
@@ -147,7 +135,6 @@ main{
     grid-gap: 40px;
     padding: 60px 0;
     margin-bottom: 60px;
-
 }
 
 .card_section{
@@ -166,7 +153,6 @@ main{
     flex-direction: column;
     cursor:pointer;
     transition: all 0.3s ease 0s;
-
 }
 
 .card_container:hover{
@@ -202,7 +188,6 @@ main{
     display: flex;
     justify-content: space-between;
     align-items: center;
-
 }
 
 .button_details {
@@ -214,6 +199,18 @@ main{
     align-items: center;
     height: 2em;
     width: 6em;
+}
+
+.button_delete_area{
+    width: 100%;
+}
+
+.button_delete {
+    display: flex;
+    width: 100%;
+    background-color: #F2286D;
+    color: #F1F3F8;
+    height: 30px;
 }
 
 @media only screen and (max-width: 1280px) {
