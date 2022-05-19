@@ -1,0 +1,43 @@
+﻿@page
+@model ManageItems
+
+@{
+    Layout = null;
+    ViewData["ActivePage"] = ManageNavPages.Email;
+}
+
+<link rel="stylesheet" href="~/css/index.css">
+
+<main>
+    <section class="card_section">
+        @foreach (var item in Model.Items)
+        {
+            <div class="card_container">
+                <div class="card_image">
+                     @if (@item.ImageData == null)
+                        {
+                            <img alt="photo" src="">
+                        }
+                        else
+                        {
+                           <img alt="photo" src="data:image/png;base64,@Convert.ToBase64String(@item.ImageData)">
+                        }
+                     </div>
+                <div class="card_text_content">
+                    <div class="card_title">
+                        <p class="text--medium">
+                            @item.Name
+                        </p>
+                        <p class="text--medium text_bold">
+                            @item.Price dkk
+                        </p>
+                    </div>
+                    <div class="card_info">
+                        <a asp-page="./UpdateItem" asp-route-itemId="@item.ItemId" class="button_details">Update</a>
+                        <a asp-page="/Details" class="button_details">Delete</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </section>
+</main>
