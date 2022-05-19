@@ -33,7 +33,7 @@ namespace ZealandMarketPlace.Pages.Items
 
         public void OnGet(int id)
         {
-            Item = _itemService.GetItemDetails(id);
+            Item = _itemService.GetItem(id);
             if (Item == null)
             {
                 RedirectToPage("/NotFound");

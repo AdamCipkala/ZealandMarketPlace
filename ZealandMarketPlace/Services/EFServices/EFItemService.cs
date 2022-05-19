@@ -19,7 +19,7 @@ namespace ZealandMarketPlace.Services.EFServices
         {
             return context.Items;
         }
-        public Item GetItemDetails(int itemId)
+        public Item GetItem(int itemId)
         {
             return context.Items.FirstOrDefault(i => i.ItemId == itemId);
         }
@@ -45,6 +45,11 @@ namespace ZealandMarketPlace.Services.EFServices
             return context.Items.Where(item => item.Name.Contains(name));
         }
 
+        public void DeleteItem(Item item)
+        {
+            context.Items.Remove(item);
+            context.SaveChanges();
+        }
 
     }
 }

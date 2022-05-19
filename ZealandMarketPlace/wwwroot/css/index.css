@@ -88,6 +88,18 @@ main{
     width: 6em;
 }
 
+.button_delete_area{
+    width: 100%;
+}
+
+.button_delete {
+    display: flex;
+    width: 100%;
+    background-color: #F2286D;
+    color: #F1F3F8;
+    height: 30px;
+}
+
 @media only screen and (max-width: 1000px) {
     .card_container{
         grid-column-end: span 6;

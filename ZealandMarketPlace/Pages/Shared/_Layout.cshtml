@@ -28,9 +28,18 @@
             </div>
     
             <ul>
-                <li><a asp-page="/Index" class="active">Home</a></li>
-                <li><a asp-page="/Index">Contacts</a></li>
-                <partial name="_LoginPartial"/>
+                @if (User.IsInRole("Administrator"))
+                {
+                    <li><a asp-page="/Index" class="active">Home</a></li>
+                    <partial name="_LoginPartial" />
+                }
+                else
+                {
+                    <li><a asp-page="/Index" class="active">Home</a></li>
+                    <li><a asp-page="/Index">Contacts</a></li>
+                    <partial name="_LoginPartial" />
+                }
+
             </ul>
         </nav>
 </header>
