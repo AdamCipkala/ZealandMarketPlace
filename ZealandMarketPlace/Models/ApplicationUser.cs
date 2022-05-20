@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Identity;
+using System.Collections.Generic;
 
 namespace ZealandMarketPlace.Models
 {
@@ -6,6 +7,7 @@ namespace ZealandMarketPlace.Models
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public List<Item> FavouriteItems { get; set; }
     }
 }
 
