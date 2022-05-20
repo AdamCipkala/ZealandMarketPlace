@@ -2,21 +2,32 @@
 @inject SignInManager<IdentityUser> SignInManager
 @inject UserManager<IdentityUser> UserManager
 
-    @if (SignInManager.IsSignedIn(User))
+@if (SignInManager.IsSignedIn(User))
+{
+    if (!User.IsInRole("Administrator"))
     {
         <li>
-            <a asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">profile</a>
+            <a asp-page="/Index">Contacts</a>
         </li>
         <li>
-                <a asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new {area = ""})">Logout</a>
-        </li>
+            <a asp-page="/Items/Favourites">My Favourites</a>
+        </li> 
     }
-    else
-    {
-        <li>
-            <a  asp-area="Identity" asp-page="/Account/Register">Register</a>
-        </li>
-        <li>
-            <a asp-area="Identity" asp-page="/Account/Login">Login</a>
-        </li>
-    }
+    
+    <li>
+        <a asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">profile</a>
+    </li>
+
+    <li>
+        <a asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post" type="submit">Logout</a>
+    </li>
+}
+else
+{
+    <li>
+        <a asp-area="Identity" asp-page="/Account/Register">Register</a>
+    </li>
+    <li>
+        <a asp-area="Identity" asp-page="/Account/Login">Login</a>
+    </li>
+}

@@ -4,6 +4,7 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using ZealandMarketPlace.Models;
 using ZealandMarketPlace.Services.Interfaces;
@@ -25,6 +26,12 @@ namespace ZealandMarketPlace.Pages
         public void OnGet()
         {
             Items = _itemService.GetAllItems();
+        }
+        public IActionResult OnPost(int itemId)
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            _itemService.AddItemToFavouriteList(_itemService.GetItem(itemId), userId);
+            return RedirectToPage("/Index");
         }
     }
 }

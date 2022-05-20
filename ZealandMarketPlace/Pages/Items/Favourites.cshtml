@@ -1,10 +1,7 @@
 ﻿@page
-@model IndexModel
-@using Microsoft.AspNetCore.Identity
-@inject SignInManager<IdentityUser> SignInManager
-@inject UserManager<IdentityUser> UserManager
+@model ZealandMarketPlace.Pages.Items.FavouritesModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Favourites";
 }
 
 <link rel="stylesheet" href="~/css/index.css">
@@ -40,18 +37,6 @@
                         <p class="text--medium">Patrik</p>
                         <a asp-page="/Items/ItemDetails" asp-route-id="@item.ItemId" class="button_details">Details</a>
                     </div>
-                    @if (User.IsInRole("Administrator"))
-                    {
-                        <div class="button_delete_area">
-                            <a asp-page="/Items/DeleteItem" asp-route-itemId="@item.ItemId" class="button_delete">Delete</a>
-                        </div>
-                    }
-                    else if (SignInManager.IsSignedIn(User))
-                    {
-                        <div class="button_favourite_area">
-                            <input type="submit" value="Add Favourite" class="button_favourite" />
-                        </div>
-                    }
 
                 </div>
             </div>

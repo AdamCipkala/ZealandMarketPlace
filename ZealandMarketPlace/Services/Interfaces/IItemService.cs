@@ -17,5 +17,9 @@ namespace ZealandMarketPlace.Services.Interfaces
 
         void DeleteItem(Item item);
         void UpdateItem(Item item);
+
+        void AddItemToFavouriteList(Item item, string userId);
+
+        public IEnumerable<Item> GetFavouritesList(string userId);
     }
 }
