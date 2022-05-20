@@ -1,7 +1,7 @@
 body{
     padding: 0;
     margin: 0;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Courier Prime', monospace;
 }
 
 /*REGISTER area*/
@@ -11,11 +11,12 @@ body{
     height: auto;
     display: flex;
     justify-content: center;
+    margin-bottom: 100px;
 }
 
 .register_area{
     height: auto;
-    width: 900px;
+    width: 70%;
     background-color: #fff;
     position: relative;
     border-radius: 25px;
@@ -26,6 +27,8 @@ body{
 
 .register_area input{
     width: 100%;
+    margin-left: 10px;
+    margin-right: 10px;
     margin-bottom: 50px;
 }
 
@@ -35,7 +38,7 @@ body{
     outline: none;
     background: transparent;
     border-bottom: 1px solid #A8A8A8;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Courier Prime', monospace;
     font-size: 16px;
     font-weight: 300;
     color: #A8A8A8;
@@ -47,8 +50,8 @@ body{
     border: none;
     outline: none;
     width: 45%;
-    background: #415A77;
-    font-family: 'Roboto', sans-serif;
+    background:  #6FB0F1;
+    font-family: 'Courier Prime', monospace;
     font-size: 20px;
     color: #fff;
     border-radius: 12px;
@@ -62,33 +65,47 @@ body{
 
 }
 
-.input_item,
-.input_item1{
-    margin-right: 30px;
-}
-
 .register_button{
     width: 100%;
     display: flex;
     justify-content: center;
 }
 
-
-
 .container_link{
     width: 100%;
     display: flex;
     justify-content: center;
+    
+}
+
+.container_area{
+    width: 45%;
 }
 
 .link_login{
-    width: 45%;
-
+    width: 100%;
     display: flex;
     justify-content: space-between;
 
 }
 
+
+
+.register_item{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.validation{
+    width: 100%;
+    display: flex;
+    margin-left: 10px;
+    margin-right: 10px;
+
+}
 
 .link_login span{
     color: #A8A8A8;
@@ -97,6 +114,84 @@ body{
 .link_login a
 {
     text-decoration: none;
-    color: #1B263B;
+    color:#3174CC;
+
+}
+
+.text_information{
+    color:#F2286D;
+    margin-bottom: 5px;
+}
+
+@media only screen and (max-width: 1280px) {
+    .container_area{
+        width: 60%;
+    }
+
+    .register_area input[type="submit"] {
+        width: 60%;
+    }
+}
+
+
+@media only screen and (max-width: 950px) {
+    .container_area{
+        width: 90%;
+    }
+
+    .register_area input[type="submit"] {
+        width: 80%;
+    }
+    
+    .register_item{
+        display: block;
+    }
+    
+    .register_area{
+        width: 60%;
+    }
+
+    .validation{
+        display: block;
+    }
+}
+
+@media only screen and (max-width: 810px) {
+   
+    .register_area{
+        width: 70%;
+    }
+
+    .register_area{
+        padding: 70px 40px 40px 40px;
+    }
+}
+
+@media only screen and (max-width: 530px) {
+
+    .register_area{
+        width: 90%;
+    }
+
+    .register_area input[type="submit"] {
+        width: 95%;
+    }
+
+    .link_login {
+        display: block;
+        justify-content: normal;
+    }
+    
+}
+
+@media only screen and (max-width: 300px) {
+
+    
+
+    .register_area input[type="submit"] {
+        width: 100%;
+    }
+
+    
 
 }
