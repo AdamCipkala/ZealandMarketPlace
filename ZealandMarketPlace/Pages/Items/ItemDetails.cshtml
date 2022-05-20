@@ -43,26 +43,29 @@
             @Html.DisplayFor(model => model.Item.Price)
         </dd>
     </dl>
+    <br/>
     <form method="post">
         <div>
-            <input type="submit" value="Contact" class="btn btn-warning"/>
+            <input asp-for="@Model.OwnerId" value="@Model.Item.UserId" hidden="hidden"/>
+            <button type="submit" class="btn btn-warning">Buy contact</button>
         </div>
     </form>
-    <br/>
+
+
     <div>
         <a asp-page="/Items/GetItems">Back to List</a>
     </div>
 
-    <div>
-        <form method="post" asp-page-handler="OnPostReview">
-            <label asp-for="@Model.Review.ReviewText">Review</label>
-            <textarea asp-for="@Model.Review.ReviewText" id="reviewTest" placeholder="Write your review" rows="4" cols="50"></textarea>
-            <select asp-for="@Model.Review.Rating" asp-items="Html.GetEnumSelectList<Rating>()">
-                <option selected="selected" value="">How many stars you will give?</option>
-            </select>
-            <div>
-                <input type="submit" value="Submit" class="btn btn-primary"/>
-            </div>
-        </form>
+    <div style="min-height: 200px">
+        @* <form method="post" asp-page-handler="OnPostReview"> *@
+        @*     <label asp-for="@Model.Review.ReviewText">Review</label> *@
+        @*     <textarea asp-for="@Model.Review.ReviewText" id="reviewTest" placeholder="Write your review" rows="4" cols="50"></textarea> *@
+        @*     <select asp-for="@Model.Review.Rating" asp-items="Html.GetEnumSelectList<Rating>()"> *@
+        @*         <option selected="selected" value="">How many stars you will give?</option> *@
+        @*     </select> *@
+        @*     <div> *@
+        @*         <input type="submit" value="Submit" class="btn btn-primary"/> *@
+        @*     </div> *@
+        @* </form> *@
     </div>
 </div>

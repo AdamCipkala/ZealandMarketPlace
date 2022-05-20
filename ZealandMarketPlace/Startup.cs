@@ -77,6 +77,8 @@ namespace ZealandMarketPlace
                 options.SlidingExpiration = true;
             });
             services.AddScoped<IItemService, EFItemService>();
+            services.AddScoped<IOrderService, EFOrderService>();
+            services.AddScoped<IReviewService, EFReviewService>();
 
 
         }
