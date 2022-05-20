@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -11,17 +12,19 @@ namespace ZealandMarketPlace.Pages.Items
 {
     public class FavouritesModel : PageModel
     {
-        private IItemService _itemService;
+        private IItemService itemService;
         public IEnumerable<Item> Items { get; set; }
         public string ImagePath { get; set; }
-        public FavouritesModel(IItemService service)
+        public FavouritesModel(IItemService iService)
         {
-            _itemService = service;
+            itemService = iService;
         }
 
         public void OnGet()
         {
-            Items = _itemService.GetAllItems();
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            Items = itemService.GetFavouritesList(userId);
+            
         }
     }
 }

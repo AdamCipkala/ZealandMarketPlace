@@ -1,5 +1,8 @@
 ﻿@page
 @model IndexModel
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
 @{
     ViewData["Title"] = "Home page";
 }
@@ -20,9 +23,9 @@
                     {
                         <img alt="photo" src="data:image/png;base64,@Convert.ToBase64String(item.ImageData)">
                     }
-                    
+
                 </div>
-                
+
 
                 <div class="card_text_content">
                     <div class="card_title">
@@ -41,6 +44,12 @@
                     {
                         <div class="button_delete_area">
                             <a asp-page="/Items/DeleteItem" asp-route-itemId="@item.ItemId" class="button_delete">Delete</a>
+                        </div>
+                    }
+                    else if (SignInManager.IsSignedIn(User))
+                    {
+                        <div class="button_favourite_area">
+                            <input type="submit" value="Add Favourite" class="button_favourite" />
                         </div>
                     }
 
