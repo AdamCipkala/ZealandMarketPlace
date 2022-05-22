@@ -15,6 +15,11 @@ namespace ZealandMarketPlace.Services.EFServices
             context = dbContext;
         }
 
+        public IEnumerable<Item> GetAllUserItems(string userId)
+        {
+            return context.Items.Where(item => item.UserId == userId);
+        }
+
         public IEnumerable<Item> GetAllItems()
         {
             return context.Items;

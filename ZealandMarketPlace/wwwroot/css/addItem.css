@@ -73,4 +73,30 @@ div.category-container > select{
     border-radius: 4px;
 }
 
+.photo {
+    width: 200px;
+    height: 200px;
+}
 
+.upload-img-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.item-picture-container {
+    margin-left: 30px;
+}
+
+#submit {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: rgb(37, 201, 255);
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: 1s;
+}
+
+#submit:hover {
+    background-color: rgba(38, 191, 255, 0.6);
+}
