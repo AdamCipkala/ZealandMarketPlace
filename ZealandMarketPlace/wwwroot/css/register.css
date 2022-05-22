@@ -32,7 +32,7 @@ body{
     margin-bottom: 50px;
 }
 
-.register_area input[type="text"], input[type="password"]
+.register_area input[type="text"], .register_area input[type="password"]
 {
     border: none;
     outline: none;
