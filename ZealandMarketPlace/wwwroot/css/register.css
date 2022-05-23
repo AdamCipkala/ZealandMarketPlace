@@ -50,7 +50,7 @@ body{
     border: none;
     outline: none;
     width: 45%;
-    background:  #6FB0F1;
+    background:  #3174CC;
     font-family: 'Courier Prime', monospace;
     font-size: 20px;
     color: #fff;
@@ -114,7 +114,7 @@ body{
 .link_login a
 {
     text-decoration: none;
-    color:#3174CC;
+    color:#6FB0F1;
 
 }
 

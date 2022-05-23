@@ -10,7 +10,7 @@ body{
 
 .card-wrapper{
     max-width: 1100px;
-    margin: 75px auto;
+    margin: 40px auto;
 }
 
 .headline_page{
@@ -152,7 +152,7 @@ table td{
 
 .review_box{
     width: 1065px;
-    margin: 10px;
+    margin: 0 10px 10px 10px;
     border-radius: 20px;
     display: flex;
     justify-content: center;
@@ -168,6 +168,54 @@ table td{
 
 .review_box textarea{
     width: 100%;
+    height:100px;
+    padding:10px;
+    box-sizing: border-box;
+    border: 2px solid #78899F;
+    border-radius: 4px;
+    background-color: transparent;
+    font-size: 16px;
+    color: #26282E;
+    resize: vertical;
+}
+
+
+.form_review select {
+
+    /* styling */
+    background-color: transparent;
+    border: 1px solid #78899F;
+    border-radius: 4px;
+    display: inline-block;
+    font: inherit;
+    line-height: 1.5em;
+    padding: 0.5em 3.5em 0.5em 1em;
+    margin: 0;
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+
+/* arrows */
+
+select.classic {
+    background-image:
+            linear-gradient(45deg, transparent 50%, #26282E 50%),
+            linear-gradient(135deg, #26282E 50%, transparent 50%),
+            linear-gradient(to right, #6FB0F1, #6FB0F1);
+    background-position:
+            calc(100% - 20px) calc(1em + 2px),
+            calc(100% - 15px) calc(1em + 2px),
+            100% 0;
+    background-size:
+            5px 5px,
+            5px 5px,
+            2.5em 2.5em;
+    background-repeat: no-repeat;
 }
 
 .button_area{
@@ -175,12 +223,19 @@ table td{
     justify-content: center;
 }
 
+.form_review{
+    width:100%;
+    display:flex;
+    justify-content: center;
+    margin: 15px auto;
+}
+
 .review_button{
     background-color: #3174CC;
     border: 1.5px solid #ddd;
     border-radius: 20px;
     text-align: center;
-    padding: 0.45rem 0.8rem;
+    padding: 0.6rem 5rem;
     font-size: 16px;
     outline: 0;
     cursor: pointer;
@@ -209,5 +264,12 @@ table td{
 
     .product-content {
         border-left: 2px solid black;
+    }
+}
+
+@media screen and (max-width: 370px){
+    .form_review select{
+        width:200px;
+        margin:auto;
     }
 }

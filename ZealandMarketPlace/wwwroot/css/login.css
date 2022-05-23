@@ -9,6 +9,7 @@ body{
     width: 100%;
     height: auto;
     display: flex;
+    margin-top:100px;
     justify-content: center;
     margin-bottom: 40px;
 }
@@ -16,10 +17,8 @@ body{
 .login_area{
     height: auto;
     width: 400px;
-    margin-top: 5%;
+    margin: 0 10px 0 10px;
     background-color: #fff;
-    margin-bottom: 5%;
-    /*background-color: #fff;*/
     position: relative;
     border-radius: 25px;
     box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.10), 0 6px 20px 0 rgba(0, 0, 0, 0.10);
@@ -88,4 +87,16 @@ input:-webkit-autofill:active{
 .text_information{
     color:#F2286D;
     margin-bottom: 5px;
+}
+
+@media only screen and (max-width: 400px) {
+    .login_area{
+        padding: 45px;
+    }
+
+
+    
+
+
+
 }

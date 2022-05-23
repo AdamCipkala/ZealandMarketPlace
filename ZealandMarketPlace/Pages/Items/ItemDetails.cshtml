@@ -75,7 +75,7 @@
         <form method="post" asp-page-handler="OnPostReview">
             <textarea asp-for="@Model.Review.ReviewText" id="reviewTest" placeholder="Write your review"></textarea>
             <div class="form_review">
-                <select asp-for="@Model.Review.Rating" asp-items="Html.GetEnumSelectList<Rating>()">
+                <select class="classic" asp-for="@Model.Review.Rating" asp-items="Html.GetEnumSelectList<Rating>()">
                     <option selected="selected" value="">How many stars you will give?</option>
                 </select>
             </div>
