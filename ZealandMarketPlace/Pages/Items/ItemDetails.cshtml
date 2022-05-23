@@ -5,6 +5,90 @@
 @{
 }
 
+
+<script src="https://kit.fontawesome.com/671f3bdf44.js"></script>
+
+<div class="card-wrapper">
+    <div class="card">
+
+        <!-- card left -->
+        <div class="product-imgs">
+            <div class="img-display">
+                <img src="data:image/png;base64,@Convert.ToBase64String(Model.Item.ImageData)" alt="shoe image">
+            </div>
+
+        </div>
+        <!-- card right -->
+        <div class="product-content">
+            
+            <div class="headline_page">
+            <a asp-page="/Index" class=""> <i class="fa-solid fa-arrow-left"></i></a>
+            <h2 class="product-title">@Model.Item.Name</h2>
+            </div>
+
+
+            <div class="product-detail">
+                
+                <div class="about_item">
+                <h2>about this item: </h2>
+                    <p>@Html.DisplayFor(model => model.Item.Descritpion)</p>
+                    </div>
+                <!--<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, perferendis eius. Dignissimos, labore suscipit. Unde.</p>-->
+
+                <table>
+                    <tr>
+                        <td class="padding">@Html.DisplayNameFor(model => model.Item.Name):</td>
+                        <td>@Html.DisplayFor(model => model.Item.Name)</td>
+                    </tr>
+                    <tr>
+                        <td class="padding">@Html.DisplayNameFor(model => model.Item.Status):</td>
+                        <td>@Html.DisplayFor(model => model.Item.Status)</td>
+                    </tr>
+                    <tr>
+                        <td class="padding">@Html.DisplayNameFor(model => model.Item.Category):</td>
+                        <td>@Html.DisplayTextFor(model => model.Item.Category)</td>
+                    </tr>
+                    <tr>
+                        <td class="padding">@Html.DisplayNameFor(model => model.Item.Price):</td>
+                        <td>@Html.DisplayFor(model => model.Item.Price)dkk</td>
+                    </tr>
+                </table>
+
+            </div>
+
+            <div class="purchase-info">
+
+                <form method="post">
+                    <button type="button" class="button_contact">Buy Contact</button>
+                </form>
+
+
+                <a asp-page="/Index" class=""> <i class="fa-solid fa-heart"></i></a>
+
+            </div>
+        </div>
+    </div>
+</div>
+      
+<div class="review_container">
+    <div class="review_box">
+        <form method="post" asp-page-handler="OnPostReview">
+            <textarea asp-for="@Model.Review.ReviewText" id="reviewTest" placeholder="Write your review"></textarea>
+            <div class="form_review">
+                <select asp-for="@Model.Review.Rating" asp-items="Html.GetEnumSelectList<Rating>()">
+                    <option selected="selected" value="">How many stars you will give?</option>
+                </select>
+            </div>
+            <div class="button_area">
+                <input type="submit" class="review_button" value="Submit"/>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+<!--
 <h2>Details of @Model.Item.Name</h2>
 
 <div>
@@ -53,16 +137,6 @@
         <a asp-page="/Items/GetItems">Back to List</a>
     </div>
 
-    <div>
-        <form method="post" asp-page-handler="OnPostReview">
-            <label asp-for="@Model.Review.ReviewText">Review</label>
-            <textarea asp-for="@Model.Review.ReviewText" id="reviewTest" placeholder="Write your review" rows="4" cols="50"></textarea>
-            <select asp-for="@Model.Review.Rating" asp-items="Html.GetEnumSelectList<Rating>()">
-                <option selected="selected" value="">How many stars you will give?</option>
-            </select>
-            <div>
-                <input type="submit" value="Submit" class="btn btn-primary"/>
-            </div>
-        </form>
-    </div>
+    
 </div>
+-->

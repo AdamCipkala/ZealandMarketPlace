@@ -1,0 +1,213 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Courier Prime', monospace;
+}
+body{
+    line-height: 1.5;
+}
+
+.card-wrapper{
+    max-width: 1100px;
+    margin: 75px auto;
+}
+
+.headline_page{
+    display: flex;
+    align-items: center;
+}
+
+.headline_page a{
+    margin-right: 10px;
+}
+
+
+.card{
+    margin: 10px;
+    background-color: #F1F3F8;
+    box-shadow:  2px 2px 2px #D1D6E2;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.img-display{
+    box-shadow: 4px 4px 4px #78899F;
+    border-radius: 10px;
+
+}
+
+img{
+    width: 100%;
+    display: block;
+    border-radius: 10px;
+}
+
+.img-display{
+    overflow: hidden;
+}
+
+.product-content{
+    padding: 2rem 1rem;
+}
+
+.product-title{
+    font-size: 3rem;
+    text-transform: capitalize;
+    font-weight: 700;
+    position: relative;
+    color: #12263a;
+    margin: 1rem 0;
+}
+
+.product-title::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 4px;
+    width: 110px;
+    background: #12263a;
+}
+
+.product-detail h2{
+    text-transform: capitalize;
+    color: #6FB0F1;
+    padding-bottom: 0.6rem;
+}
+
+.product-detail p{
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.padding{
+    min-width: 100px;
+    font-weight: bold;
+}
+
+table{
+    margin-top: 15px;
+    border-collapse: separate;
+    border-spacing: 0 5px;
+}
+
+table td{
+    font-size: 14px;
+}
+
+.about_item{
+    width:90%
+}
+
+.button_contact{
+    background-color: #4AD188;
+    border: 1.5px solid #ddd;
+    border-radius: 20px;
+    text-align: center;
+    padding: 0.45rem 0.8rem;
+    font-size: 16px;
+    outline: 0;
+    margin-right: 1.2rem;
+    
+}
+
+.fa-heart,
+.fa-arrow-left{
+    
+    font-size: 30px;
+    color: #F2286D;
+    cursor:pointer;
+}
+
+.fa-arrow-left{
+    color: #3174CC;
+}
+
+.purchase-info{
+    position:relative;
+    display: flex;
+    margin-top:15px;
+    align-items: center;
+}
+
+.purchase-info .button_contact{
+    cursor: pointer;
+    color: #fff;
+}
+
+.purchase-info .button_contact:hover
+{
+    opacity: 0.9;
+}
+
+.review_container{
+    width:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    margin-bottom: 100px;
+}
+
+.review_box{
+    width: 1065px;
+    margin: 10px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F1F3F8;
+    box-shadow:  2px 2px 2px #D1D6E2;
+}
+
+.review_box form{
+    width: 100%;
+    padding: 20px;
+}
+
+.review_box textarea{
+    width: 100%;
+}
+
+.button_area{
+    display: flex;
+    justify-content: center;
+}
+
+.review_button{
+    background-color: #3174CC;
+    border: 1.5px solid #ddd;
+    border-radius: 20px;
+    text-align: center;
+    padding: 0.45rem 0.8rem;
+    font-size: 16px;
+    outline: 0;
+    cursor: pointer;
+    color: #F1F3F8;
+}
+
+@media screen and (min-width: 992px){
+    .card{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 1.5rem;
+    }
+    .card-wrapper{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .product-imgs{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .product-content{
+        padding-top: 0;
+    }
+
+    .product-content {
+        border-left: 2px solid black;
+    }
+}
