@@ -49,7 +49,11 @@
                     else if (SignInManager.IsSignedIn(User))
                     {
                         <div class="button_favourite_area">
-                            <input type="submit" value="Add Favourite" class="button_favourite" />
+                            <form method="post">
+                                <input type="number" asp-for="@Model.FavouriteItemId" value="@item.ItemId" hidden="hidden">
+                                <input type="submit" value="Add Favourite" class="button_favourite"/>
+
+                            </form>
                         </div>
                     }
 

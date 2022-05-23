@@ -17,6 +17,9 @@ namespace ZealandMarketPlace.Pages
         private IItemService _itemService;
         public IEnumerable<Item> Items { get; set; }
         public string ImagePath { get; set; }
+
+        public int FavouriteItemId { get; set; }
+
         public IndexModel(ILogger<IndexModel> logger,IItemService service)
         {
             _logger = logger;
@@ -27,10 +30,10 @@ namespace ZealandMarketPlace.Pages
         {
             Items = _itemService.GetAllItems();
         }
-        public IActionResult OnPost(int itemId)
+        public IActionResult OnPost()
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            _itemService.AddItemToFavouriteList(_itemService.GetItem(itemId), userId);
+            _itemService.AddItemToFavouriteList(FavouriteItemId, userId);
             return RedirectToPage("/Index");
         }
     }

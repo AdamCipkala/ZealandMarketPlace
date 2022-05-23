@@ -7,11 +7,14 @@
     if (!User.IsInRole("Administrator"))
     {
         <li>
-            <a asp-page="/Index">Contacts</a>
+            <a asp-page="/Contacts">Contacts</a>
         </li>
         <li>
             <a asp-page="/Items/Favourites">My Favourites</a>
         </li> 
+        <li>
+            <a asp-page="/Items/AddItem">Add Item</a>
+        </li>
     }
     
     <li>

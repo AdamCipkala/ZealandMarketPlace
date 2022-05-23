@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Identity;
 using ZealandMarketPlace.Models;
 
 namespace ZealandMarketPlace.Services.Interfaces
@@ -13,6 +14,8 @@ namespace ZealandMarketPlace.Services.Interfaces
         public void DeleteOrder(int id);
         public IEnumerable<Order> GetUserOrders(string userId);
         public IEnumerable<Order> GetReceivedOrders(string userId);
+
+        public IEnumerable<IdentityUser> GetBoughtUsers(string userId);
 
 
     }

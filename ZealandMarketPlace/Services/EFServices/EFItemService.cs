@@ -62,18 +62,27 @@ namespace ZealandMarketPlace.Services.EFServices
             context.SaveChanges();
         }
 
-        public void AddItemToFavouriteList(Item item,string userId)
+        public void AddItemToFavouriteList(int itemId, string userId)
         {
-            var User = context.ApplicationUsers.FirstOrDefault(User=>User.Id==userId);
-            User.FavouriteItems.Add(item);
-            context.Update(User);
+            var userFavourite = new UserFavourite
+            {
+                ItemId = itemId,
+                UserId = userId
+            };
+            context.UserFavourites.Add(userFavourite);
             context.SaveChanges();
         }
 
         public IEnumerable<Item> GetFavouritesList(string userId)
         {
-            var User = context.ApplicationUsers.FirstOrDefault(User => User.Id == userId);
-            return User.FavouriteItems.ToList();
+            IEnumerable<UserFavourite> data = GetFavouritesData(userId);
+            var dataIds = data.Select(d => d.ItemId).ToList();
+            return context.Items.Where(i => dataIds.Contains(i.ItemId));
+        }
+        
+        public IEnumerable<UserFavourite> GetFavouritesData(string userId)
+        {
+            return context.UserFavourites.Where(f => f.UserId == userId);
         }
     }
 }

@@ -1,47 +1,29 @@
 ﻿@page
 @model ZealandMarketPlace.Pages.Items.AddItemModel
-@{
-    Layout = null;
-}
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="~/css/addItem.css">
-        <link rel="stylesheet" href="~/css/headerFooter.css">
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Zealand MarketPlace</title>
-    </head>
-    <body>
-        <form method="post" asp-page="AddItem" id="first" enctype="multipart/form-data">
-            <div class="form-container">
-                <div class="info-container">
-                    <label asp-for="@Model.Item.Name">Name</label>
-                    <input asp-for="@Model.Item.Name" id="name" placeholder="Name" type="text">
-                    <label asp-for="@Model.Item.Descritpion">Descritpion</label>
-                    <textarea asp-for="@Model.Item.Descritpion" id="email" placeholder="Describe your product" rows="4" cols="50"></textarea>
-                    <label asp-for="@Model.Item.Price">Price</label>
-                    <input asp-for="@Model.Item.Price" id="contact" placeholder="Price in dkk" type="text">
-                    <label asp-for="@Model.Item.Category">Category</label>
-                    <select asp-for="@Model.Item.Category" asp-items="Html.GetEnumSelectList<Category>()">
-                        <option selected="selected" value="">Please select category</option>
-                    </select>
-                    <select asp-for="@Model.Item.Status" asp-items="Html.GetEnumSelectList<Status>()">
-                        <option selected="selected" value="">Please select status</option>
-                    </select>
-                    
-                        <input id="submit" type="image" src="~/images/add_circle.png" alt="Add">
-                </div>
-                <div class="img-container">
-                    <input type="file" id="file1" 
-                               name="file1" 
-                               accept="image/png, image/gif, image/jpeg" />
-                </div>
-            </div>
-        </form>
-    </body>
-</html>
+
+<form method="post" asp-page="AddItem" id="first" enctype="multipart/form-data">
+    <div class="form-container">
+        <div class="info-container">
+            <label asp-for="@Model.Item.Name">Name</label>
+            <input asp-for="@Model.Item.Name" id="name" placeholder="Name" type="text">
+            <label asp-for="@Model.Item.Descritpion">Descritpion</label>
+            <textarea asp-for="@Model.Item.Descritpion" id="email" placeholder="Describe your product" rows="4" cols="50"></textarea>
+            <label asp-for="@Model.Item.Price">Price</label>
+            <input asp-for="@Model.Item.Price" id="contact"  placeholder="Price in dkk" type="number">
+            <label asp-for="@Model.Item.Category">Category</label>
+            <select asp-for="@Model.Item.Category" asp-items="Html.GetEnumSelectList<Category>()">
+                <option selected="selected" value="">Please select category</option>
+            </select>
+            <select asp-for="@Model.Item.Status" asp-items="Html.GetEnumSelectList<Status>()">
+                <option selected="selected" value="">Please select status</option>
+            </select>
+
+            <button id="submit" alt="Add">Add item</button>
+        </div>
+        <div class="img-container">
+            <input type="file" id="file1"
+                   name="file1"
+                   accept="image/png, image/gif, image/jpeg"/>
+        </div>
+    </div>
+</form>

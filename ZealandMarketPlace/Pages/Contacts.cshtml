@@ -1,0 +1,14 @@
+@page
+@model ZealandMarketPlace.Pages.Contacts
+
+
+
+@foreach (var user in Model.UsersContacts)
+{
+    <div>
+        <h5>Id: @user.Id</h5>
+        <h3>Email: @user.Email</h3>
+        <h4>Phone number: @user.PhoneNumber</h4>
+        <h4>UserName: @user.NormalizedUserName</h4>
+    </div>   
+}

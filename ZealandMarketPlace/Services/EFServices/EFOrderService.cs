@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.AspNetCore.Identity;
 using ZealandMarketPlace.Models;
 using ZealandMarketPlace.Services.Interfaces;
 
@@ -48,6 +50,11 @@ namespace ZealandMarketPlace.Services.EFServices
             return context.Orders.Where(o => o.ContactUser == userId);
         }
 
-
+        public IEnumerable<IdentityUser> GetBoughtUsers(string userId)
+        {
+            IEnumerable<Order> orders = GetUserOrders(userId);
+            List<string> userIds = orders.Select(order => order.ContactUser).ToList();
+            return context.IdentityUsers.Where(u => userIds.Contains(u.Id));
+        }
     }
 }
