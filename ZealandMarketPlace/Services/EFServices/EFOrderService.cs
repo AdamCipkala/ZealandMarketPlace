@@ -56,5 +56,11 @@ namespace ZealandMarketPlace.Services.EFServices
             List<string> userIds = orders.Select(order => order.ContactUser).ToList();
             return context.IdentityUsers.Where(u => userIds.Contains(u.Id));
         }
+
+        public IdentityUser GetUser(string userId)
+        {
+            return context.IdentityUsers.FirstOrDefault(u => u.Id == userId);
+        }
+
     }
 }

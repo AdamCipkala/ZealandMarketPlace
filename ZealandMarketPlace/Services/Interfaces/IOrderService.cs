@@ -16,7 +16,7 @@ namespace ZealandMarketPlace.Services.Interfaces
         public IEnumerable<Order> GetReceivedOrders(string userId);
 
         public IEnumerable<IdentityUser> GetBoughtUsers(string userId);
-
+        public IdentityUser GetUser(string userId);
 
     }
 }
