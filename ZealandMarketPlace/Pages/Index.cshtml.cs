@@ -16,6 +16,11 @@ namespace ZealandMarketPlace.Pages
         private readonly ILogger<IndexModel> _logger;
         private IItemService _itemService;
         public IEnumerable<Item> Items { get; set; }
+        public IEnumerable<Item> filteredItems { get; set; }
+        [BindProperty] public string SearchName { get; set; }
+        [BindProperty] public int MinPrice { get; set; }
+        [BindProperty] public int MaxPrice { get; set; }
+        public Item Item { get; set; }
         public string ImagePath { get; set; }
 
         public int FavouriteItemId { get; set; }
@@ -29,6 +34,27 @@ namespace ZealandMarketPlace.Pages
         public void OnGet()
         {
             Items = _itemService.GetAllItems();
+        }
+
+        public IActionResult OnPostNameSearch()
+        {
+            filteredItems = _itemService.SearchItem(SearchName);
+            Items = filteredItems;
+            return Page();
+        }
+
+        public IActionResult OnPostCategoryFilter(Category category)
+        {
+            filteredItems = _itemService.FilterByCategory(category);
+            Items = filteredItems;
+            return Page();
+        }
+
+        public IActionResult OnPostPriceFilter()
+        {
+            filteredItems = _itemService.FilterByPrice(MinPrice,MaxPrice);
+            Items = filteredItems;
+            return Page();
         }
     }
 }

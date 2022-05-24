@@ -1,23 +1,25 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace ZealandMarketPlace.Models;
-
-public class UserFavourite
+namespace ZealandMarketPlace.Models
 {
 
-    [Key] public int FavouriteId { get; set; }
+    public class UserFavourite
+    {
 
-    [ForeignKey("ApplicationUser")]
-    public string UserId { get; set; }
+        [Key] public int FavouriteId { get; set; }
 
-    [ForeignKey("Item")]
-    public int ItemId { get; set; }
-    
-    
-    
-    
+        [ForeignKey("ApplicationUser")]
+        public string UserId { get; set; }
 
+        [ForeignKey("Item")]
+        public int ItemId { get; set; }
 
 
+
+
+
+
+
+    }
 }
