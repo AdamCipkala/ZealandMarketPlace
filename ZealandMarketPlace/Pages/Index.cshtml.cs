@@ -30,11 +30,5 @@ namespace ZealandMarketPlace.Pages
         {
             Items = _itemService.GetAllItems();
         }
-        public IActionResult OnPost()
-        {
-            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            _itemService.AddItemToFavouriteList(FavouriteItemId, userId);
-            return RedirectToPage("/Index");
-        }
     }
 }

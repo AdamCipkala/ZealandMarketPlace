@@ -81,16 +81,6 @@
                             <a asp-page="/Items/DeleteItem" asp-route-itemId="@item.ItemId" class="button_delete">Delete</a>
                         </div>
                     }
-                    else if (SignInManager.IsSignedIn(User))
-                    {
-                        <div class="button_favourite_area">
-                            <form method="post">
-                                <input type="number" asp-for="@Model.FavouriteItemId" value="@item.ItemId" hidden="hidden">
-                                <input type="submit" value="Add Favourite" class="button_favourite"/>
-
-                            </form>
-                        </div>
-                    }
 
                 </div>
             </div>

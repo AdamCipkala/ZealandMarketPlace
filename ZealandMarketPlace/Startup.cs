@@ -79,6 +79,7 @@ namespace ZealandMarketPlace
             services.AddScoped<IItemService, EFItemService>();
             services.AddScoped<IOrderService, EFOrderService>();
             services.AddScoped<IReviewService, EFReviewService>();
+            services.AddScoped<IFavouriteService, EFFavouriteService>();
 
 
         }

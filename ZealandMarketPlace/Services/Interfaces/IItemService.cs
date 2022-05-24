@@ -18,10 +18,6 @@ namespace ZealandMarketPlace.Services.Interfaces
         IEnumerable<Item> GetAllUserItems(string userId);
         void DeleteItem(Item item);
         void UpdateItem(Item item);
-        public IEnumerable<UserFavourite> GetFavouritesData(string userId);
-
-
-        void AddItemToFavouriteList(int itemId, string userId);
 
         public IEnumerable<Item> GetFavouritesList(string userId);
     }

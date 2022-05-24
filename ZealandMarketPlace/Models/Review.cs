@@ -18,10 +18,10 @@ namespace ZealandMarketPlace.Models
     {
         [Key] public int ReviewId { get; set; }
 
-        [ForeignKey("ApplicationUser")] public int WriterId { get; set; }
+        [ForeignKey("ApplicationUser")] public string WriterId { get; set; }
 
 
-        [ForeignKey("ApplicationUser")] public int ReceiverId { get; set; }
+        [ForeignKey("ApplicationUser")] public string ReceiverId { get; set; }
 
         [Required] public string ReviewText { get; set; }
 

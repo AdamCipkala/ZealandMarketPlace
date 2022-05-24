@@ -11,8 +11,8 @@ namespace ZealandMarketPlace.Services.Interfaces
         public void CreateReview(Review review);
         public void UpdateReview(Review review);
         public void DeleteReview(Review review);
-        public IEnumerable<Review> ReviewsByReceiver(int receiverId);
-        public IEnumerable<Review> ReviewsByWriter(int writerId);
+        public IEnumerable<Review> ReviewsByReceiver(string receiverId);
+        public IEnumerable<Review> ReviewsByWriter(string writerId);
 
     }
 }

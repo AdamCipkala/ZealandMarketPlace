@@ -16,18 +16,26 @@ namespace ZealandMarketPlace.Pages.Items
     {
         private IItemService _itemService;
         private IOrderService _orderService;
+        private IReviewService _reviewService;
+        private IFavouriteService _favouriteService;
         public Item Item { get; set; }
+        [BindProperty]public int ItemId { get; set; }
         public List<string> BoughtContacts { get; set; }
+        public List<int> FavouriteItems { get; set; }
 
         [BindProperty] public string OwnerId { get; set; }
 
         [BindProperty]
         public Review Review { get; set; }
 
-        public ItemDetailsModel(IItemService service, IOrderService orderService)
+        public IEnumerable<Review> Reviews { get; set; }
+
+        public ItemDetailsModel(IItemService service, IOrderService orderService, IReviewService reviewService, IFavouriteService favouriteService)
         {
             _orderService = orderService;
             _itemService = service;
+            _reviewService = reviewService;
+            _favouriteService = favouriteService;
         }
 
         public void OnGet(int id)
@@ -36,15 +44,25 @@ namespace ZealandMarketPlace.Pages.Items
             if (Item == null)
             {
                 RedirectToPage("/NotFound");
+                return;
             }
+
+            Reviews = _reviewService.ReviewsByReceiver(Item.UserId);
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             BoughtContacts = new List<string>();
+            FavouriteItems = new List<int>();
             if (string.IsNullOrEmpty(userId)) return;
             var usersOrders = _orderService.GetUserOrders(userId);
+            var userFavourites = _favouriteService.GetUserFavourites(userId);
             foreach (var order in usersOrders)
             {
                 BoughtContacts.Add(order.ContactUser);
             }
+            foreach (var favourite in userFavourites)
+            {
+                FavouriteItems.Add(favourite.ItemId);
+            }
+            
         }
 
         public RedirectResult OnPost()
@@ -66,9 +84,23 @@ namespace ZealandMarketPlace.Pages.Items
 
         }
 
-        public RedirectResult OnPostReview()
+        public void OnPostReview()
         {
-            return new RedirectResult("/Index");
+            Review.WriterId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            _reviewService.CreateReview(Review);
+            OnGet(ItemId);
+        }
+
+
+        public RedirectResult OnPostFavourite()
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (string.IsNullOrEmpty(userId))
+            {
+                return new RedirectResult("/Identity/Account/Login");
+            }
+            _favouriteService.ToggleUserFavouriteItem(userId, ItemId);
+            return new RedirectResult("/Items/Favourites");
         }
     }
 }

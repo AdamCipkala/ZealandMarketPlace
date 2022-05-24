@@ -12,67 +12,17 @@
 
         <div class="image_card_container">
             <div class="image_card">
-                <img src="data:image/png;base64,@Convert.ToBase64String(Model.Item.ImageData)" alt="image">
+                @if (@Model.Item.ImageData == null)
+                {
+                    <img class="photo" alt="photo" src="">
+                }
+                else
+                {
+                    <img src="data:image/png;base64,@Convert.ToBase64String(Model.Item.ImageData)" alt="image">
+                }
             </div>
 
         </div>
-        @* <<<<<<< HEAD *@
-        @*         <dt class="col-sm-2"> *@
-        @*             @Html.DisplayNameFor(model => model.Item.Name) *@
-        @*         </dt> *@
-        @*         <dd class="col-sm-10"> *@
-        @*             @Html.DisplayFor(model => model.Item.Name) *@
-        @*         </dd> *@
-        @*         <dt class="col-sm-2"> *@
-        @*             @Html.DisplayNameFor(model => model.Item.Status) *@
-        @*         </dt> *@
-        @*         <dd class="col-sm-10"> *@
-        @*             @Html.DisplayFor(model => model.Item.Status) *@
-        @*         </dd> *@
-        @*         <dt class="col-sm-2"> *@
-        @*             @Html.DisplayNameFor(model => model.Item.Descritpion) *@
-        @*         </dt> *@
-        @*         <dd class="col-sm-10"> *@
-        @*             @Html.DisplayFor(model => model.Item.Descritpion) *@
-        @*         </dd> *@
-        @*         <dt class="col-sm-2"> *@
-        @*             @Html.DisplayNameFor(model => model.Item.Category) *@
-        @*         </dt> *@
-        @*         <dd class="col-sm-10"> *@
-        @*             @Html.DisplayTextFor(model => model.Item.Category) *@
-        @*         </dd> *@
-        @*         <dt class="col-sm-2"> *@
-        @*             @Html.DisplayNameFor(model => model.Item.Price) *@
-        @*         </dt> *@
-        @*         <dd class="col-sm-10"> *@
-        @*             @Html.DisplayFor(model => model.Item.Price) *@
-        @*         </dd> *@
-        @*     </dl> *@
-        @*     <br/> *@
-        @*     <form method="post"> *@
-        @*         <div> *@
-        @*             <input asp-for="@Model.OwnerId" value="@Model.Item.UserId" hidden="hidden"/> *@
-        @*             <button type="submit" class="btn btn-warning">Buy contact</button> *@
-        @*         </div> *@
-        @*     </form> *@
-        @* *@
-        @* *@
-        @*     <div> *@
-        @*         <a asp-page="/Items/GetItems">Back to List</a> *@
-        @*     </div> *@
-        @* *@
-        @*     <div style="min-height: 200px"> *@
-        @*         $1$ <form method="post" asp-page-handler="OnPostReview"> #1# *@
-        @*         $1$     <label asp-for="@Model.Review.ReviewText">Review</label> #1# *@
-        @*         $1$     <textarea asp-for="@Model.Review.ReviewText" id="reviewTest" placeholder="Write your review" rows="4" cols="50"></textarea> #1# *@
-        @*         $1$     <select asp-for="@Model.Review.Rating" asp-items="Html.GetEnumSelectList<Rating>()"> #1# *@
-        @*         $1$         <option selected="selected" value="">How many stars you will give?</option> #1# *@
-        @*         $1$     </select> #1# *@
-        @*         $1$     <div> #1# *@
-        @*         $1$         <input type="submit" value="Submit" class="btn btn-primary"/> #1# *@
-        @*         $1$     </div> #1# *@
-        @*         $1$ </form> #1# *@
-        @* ======= *@
 
         <div class="product_details_content">
 
@@ -125,10 +75,22 @@
                     }
                 }
 
+                <form method="post" asp-page-handler="Favourite">
+                    <input asp-for="@Model.ItemId" value="@Model.Item.ItemId" hidden="hidden"/>
+                    <button type="submit" class="button_contact">
+                        @{
+                            if (Model.FavouriteItems.Contains(Model.Item.ItemId))
+                            {
+                                <i class="fa-solid fa-heart"></i>
+                            }
+                            else
+                            {
+                                <i class="fa-regular fa-heart"></i>
+                            }
+                        }
+                    </button>
+                </form>
 
-                <a asp-page="/Index" class="">
-                    <i class="fa-solid fa-heart"></i>
-                </a>
 
             </div>
         </div>
@@ -136,21 +98,33 @@
 </div>
 
 <div class="review_container">
+    <h2>Reviews</h2>
+    @foreach (var review in Model.Reviews)
+    {
+        <h3>@review.ReviewText</h3>
+        <h4>Number of stars: @review.Rating</h4>
+    }
+
+</div>
+
+<div class="review_container">
     <div class="review_box">
         @{
             if (Model.BoughtContacts.Contains(Model.Item.UserId))
             {
-                        <form method="post" asp-page-handler="OnPostReview">
-                            <textarea asp-for="@Model.Review.ReviewText" id="reviewTest" placeholder="Write your review"></textarea>
-                            <div class="form_review">
-                                <select class="classic" asp-for="@Model.Review.Rating" asp-items="Html.GetEnumSelectList<Rating>()">
-                                    <option selected="selected" value="">How many stars you will give?</option>
-                                </select>
-                            </div>
-                            <div class="button_area">
-                                <input type="submit" class="review_button" value="Submit"/>
-                            </div>
-                        </form>
+                <form method="post" asp-page-handler="Review">
+                    <input type="text" asp-for="@Model.Review.ReceiverId" value="@Model.Item.UserId" hidden="hidden">
+                    <input type="number" asp-for="@Model.ItemId" value="@Model.Item.ItemId" hidden="hidden">
+                    <textarea asp-for="@Model.Review.ReviewText" id="reviewTest" placeholder="Write your review"></textarea>
+                    <div class="form_review">
+                        <select class="classic" asp-for="@Model.Review.Rating" asp-items="Html.GetEnumSelectList<Rating>()">
+                            <option selected="selected" value="">How many stars you will give?</option>
+                        </select>
+                    </div>
+                    <div class="button_area">
+                        <input type="submit" class="review_button" value="Submit"/>
+                    </div>
+                </form>
             }
             else
             {

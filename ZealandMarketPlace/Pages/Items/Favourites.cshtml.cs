@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using ZealandMarketPlace.Models;
@@ -10,6 +11,7 @@ using ZealandMarketPlace.Services.Interfaces;
 
 namespace ZealandMarketPlace.Pages.Items
 {
+    [Authorize]
     public class FavouritesModel : PageModel
     {
         private IItemService itemService;

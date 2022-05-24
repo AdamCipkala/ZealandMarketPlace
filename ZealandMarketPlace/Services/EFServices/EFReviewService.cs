@@ -44,12 +44,12 @@ namespace ZealandMarketPlace.Services.EFServices
             context.SaveChanges();
         }
 
-        public IEnumerable<Review> ReviewsByReceiver(int receiverId)
+        public IEnumerable<Review> ReviewsByReceiver(string receiverId)
         {
             return context.Reviews.Where(r => r.ReceiverId == receiverId);
         }
 
-        public IEnumerable<Review> ReviewsByWriter(int writerId)
+        public IEnumerable<Review> ReviewsByWriter(string writerId)
         {
             return context.Reviews.Where(r => r.WriterId == writerId);
         }
