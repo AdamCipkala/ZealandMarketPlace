@@ -17,6 +17,7 @@ namespace ZealandMarketPlace.Pages.Items
         private IItemService _itemService;
         private IOrderService _orderService;
         public Item Item { get; set; }
+        public List<string> BoughtContacts { get; set; }
 
         [BindProperty] public string OwnerId { get; set; }
 
@@ -36,6 +37,14 @@ namespace ZealandMarketPlace.Pages.Items
             {
                 RedirectToPage("/NotFound");
             }
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            BoughtContacts = new List<string>();
+            if (string.IsNullOrEmpty(userId)) return;
+            var usersOrders = _orderService.GetUserOrders(userId);
+            foreach (var order in usersOrders)
+            {
+                BoughtContacts.Add(order.ContactUser);
+            }
         }
 
         public RedirectResult OnPost()
@@ -51,10 +60,15 @@ namespace ZealandMarketPlace.Pages.Items
                 ContactUser = OwnerId
             };
             _orderService.AddOrder(order);
-            return new RedirectResult("/");
+            return new RedirectResult("/Contacts");
 
             
 
+        }
+
+        public RedirectResult OnPostReview()
+        {
+            return new RedirectResult("/Index");
         }
     }
 }
