@@ -97,12 +97,15 @@
     </div>
 </div>
 
-<div class="review_container">
+<div class="review_list_container">
     <h2>Reviews</h2>
     @foreach (var review in Model.Reviews)
     {
-        <h3>@review.ReviewText</h3>
-        <h4>Number of stars: @review.Rating</h4>
+        <div class="review_list_box">
+            <h3>@review.ReviewText</h3>
+                    <h4>Number of stars: @review.Rating</h4>
+        </div>
+        
     }
 
 </div>

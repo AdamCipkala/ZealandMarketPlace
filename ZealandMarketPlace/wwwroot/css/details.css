@@ -236,6 +236,17 @@ select.classic {
     color: #F1F3F8;
 }
 
+
+.review_list_container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.review_list_box{
+    
+}
+
 @media screen and (min-width: 992px){
     
     .card{

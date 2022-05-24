@@ -1,14 +1,52 @@
 @page
 @model ZealandMarketPlace.Pages.Contacts
 
-
+<link rel="stylesheet" href="~/css/contacts.css">
 
 @foreach (var user in Model.UsersContacts)
 {
+    <!--
     <div>
         <h5>Id: @user.Id</h5>
         <h3>Email: @user.Email</h3>
         <h4>Phone number: @user.PhoneNumber</h4>
         <h4>UserName: @user.NormalizedUserName</h4>
-    </div>   
+    </div>  
+    -->
+    
+    
 }
+
+<main>
+    <section class="card_section">
+        @foreach (var user in Model.UsersContacts)
+        {
+            
+    <div class="card_container">
+
+        <div class="card_text_content">
+            
+            <div class="card_info">
+                <p class="text--medium"><b>Email:</b> @user.Email</p>
+            </div>
+            
+            <div class="card_info">
+                <p class="text--medium"><b>Number:</b> @user.PhoneNumber</p>
+            </div>
+            
+            <div class="card_info">
+                <p class="text--medium"><b>Name:</b> @user.NormalizedUserName</p>
+            </div>
+            
+            
+            
+
+
+        </div>
+        </div>
+            
+        }
+
+
+    </section>
+</main>
