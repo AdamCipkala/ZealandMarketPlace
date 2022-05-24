@@ -12,40 +12,51 @@
 <script src="https://kit.fontawesome.com/671f3bdf44.js"></script>
 
 
-<section class="section_search_box">
-    <div class="container_search_box">
-        <div class="box_search_box">
+    <section class="section_search_box">
+        <div class="container_search_box">
+            <div class="box_search_box">
+                <form method="post">
+                    @*<div class="filtering_dropdown">
+                        <div class="main_slider_container">
+                            <div class="main_option">All</div>
+                            <div class="slider"></div>
+                        </div>
 
-            <div class="filtering_dropdown">
-                <div class="main_slider_container">
-                    <div class="main_option">All</div>
-                    <div class="slider"></div>
-                </div>
-                <ul>
-                    <li>All</li>
-                    <li>Enum1</li>
-                    <li>Enum2</li>
-                    <li>Enum3</li>
-                    <li>Enum4</li>
-                    <li>Enum5</li>
-                </ul>
-            </div>
+                        <select asp-for="@Model.Item.Category" asp-items="Html.GetEnumSelectList<Category>()">
+                            <option selected="selected" value="">Please select category</option>
+                        </select>
+                        
+                    </div>*@
 
-            <div class="filtering_field">
-                <input type="text" class="input" placeholder="Search">
+                    <div>
+                        <div>
+                            <span class="input-group-text">Min</span>
+                        </div>
+                        <input asp-for="MinPrice" class="form-control mr-1" />
 
-                <i class="fa-solid fa-magnifying-glass"></i>
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Max</span>
+                        </div>
+                        <input asp-for="MaxPrice" class="form-control mr-1" />
+                        <input type="submit" asp-page-handler="PriceFilter" value="Filter" class="btn btn-primary" />
+                    </div>
 
+                    <div class="filtering_field">
+                        <input asp-for="SearchName" type="text" class="input" placeholder="Search">
+                        <input type="submit" asp-page-handler="NameSearch" value="Search" />
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                </form>
             </div>
         </div>
-    </div>
-  
-</section>
+
+    </section>
 
 
 
 <main>
     <section class="card_section">
+       
         @foreach (var item in Model.Items)
         {
             <div class="card_container">
@@ -85,7 +96,7 @@
                 </div>
             </div>
         }
-
+        
 
     </section>
 </main>

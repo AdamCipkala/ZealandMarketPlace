@@ -48,11 +48,17 @@ namespace ZealandMarketPlace.Services.EFServices
 
         public IEnumerable<Item> FilterByPrice(double minPrice, double maxPrice)
         {
-            return context.Items.Where(item => item.Price >= minPrice && item.Price <= maxPrice);
+
+            return context.Items.Where(item => (minPrice == 0 && item.Price <= maxPrice) || (maxPrice == 0 && item.Price >= minPrice) || (item.Price >= minPrice && item.Price <= maxPrice));
+
         }
 
         public IEnumerable<Item> SearchItem(string name)
         {
+            if (string.IsNullOrEmpty(name)) 
+            {
+                return context.Items;
+            }
             return context.Items.Where(item => item.Name.Contains(name));
         }
 
