@@ -1,4 +1,3 @@
-
 .deleteItem_headline{
     width: 100%;
     margin-top:20px;
@@ -24,10 +23,15 @@
     justify-content: center;
 }
 
+.buttons_box form{
+    flex-direction: row;
+    margin:0;
+}
+
 .delete_button
 {
     background-color: #F2286D;
-    border: 1.5px solid #ddd;
+    border: 1px solid #ddd;
     border-radius: 20px;
     text-align: center;
     padding: 1rem 5rem;
@@ -37,7 +41,7 @@
 }
 
 .index_button{
-    border: 1.5px solid #ddd;
+    border: 1px solid #ddd;
     border-radius: 20px;
     text-align: center;
     padding: 0.9rem 5rem;
@@ -45,20 +49,24 @@
     cursor: pointer;
     color: #F1F3F8;
     background-color: #4AD188;
-    margin-left: 20px;
+    margin-left:20px;
 }
 
 @media only screen and (max-width: 600px) {
     .deleteItem_headline p{
         font-size: 23px;
     }
+
+    .buttons_box form {
+        flex-direction: column;
+    }
     
     .delete_button{
         margin-bottom: 20px;
     }
-    
+
     .index_button{
-        margin-left: 0;
+        margin: 0;
     }
     .buttons_box{
         display:block;

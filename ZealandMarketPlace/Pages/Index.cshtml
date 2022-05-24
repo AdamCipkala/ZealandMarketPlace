@@ -72,7 +72,7 @@
                         </p>
                     </div>
                     <div class="card_info">
-                        <p class="text--medium">Patrik</p>
+                        <p class="text--medium">@item.Status</p>
                         <a asp-page="/Items/ItemDetails" asp-route-id="@item.ItemId" class="button_details">Details</a>
                     </div>
                     @if (User.IsInRole("Administrator"))

@@ -119,11 +119,15 @@ table td{
     color: #3174CC;
 }
 
-.contact_box{
-    position:relative;
+.contact_box {
+    position: relative;
     display: flex;
-    margin-top:15px;
+    margin-top: 15px;
     align-items: center;
+}
+
+.contact_box form{
+    margin:0;
 }
 
 .contact_box .button_contact{
