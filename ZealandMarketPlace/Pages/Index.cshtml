@@ -17,21 +17,23 @@
             <div class="box_search_box">
 
                 <div class="filtering_dropdown">
-                    <div class="main_slider_container">
-                        <select asp-for="@Model.Category" asp-items="Html.GetEnumSelectList<Category>()">
-                                                <option selected="selected">Please select category</option>
-                                            </select>
+                    
+                        <div class="filter_slider">
+                            <select class="sliding" asp-for="@Model.Category" asp-items="Html.GetEnumSelectList<Category>()">
+                                <option selected="selected">All</option>
+                            </select>
+                            </div>
                         @* <div class="main_option">All</div> *@
                         @* <div class="slider"></div> *@
                     </div>
 
                     
 
-                </div>
+                
 
                 <div class="filtering_field">
                     <input asp-for="@Model.SearchTerm" type="text" class="input" placeholder="Search">
-                    <button type="submit">
+                    <button type="submit" class="button_search">
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </button>
 

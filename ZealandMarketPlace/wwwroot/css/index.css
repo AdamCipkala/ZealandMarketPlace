@@ -50,6 +50,47 @@
     font-size: 18px;
 }
 
+.filter_slider{
+    margin-top: 4px;
+}
+
+.filter_slider select {
+    background-color: transparent;
+    border: 1px solid #78899F;
+    color: #78899F;
+    border-radius: 4px;
+    display: inline-block;
+    font: inherit;
+    width:99%;
+    line-height: 1.5em;
+    padding: 0.5em 1.5em 0.5em 0.2em;
+    box-sizing: border-box;
+    margin: 0;
+    
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+select.sliding {
+    background-image: 
+            linear-gradient(45deg, transparent 50%, #26282E 50%), 
+            linear-gradient(135deg, #26282E 50%, transparent 50%), 
+            linear-gradient(to right, #3174CC, #3174CC);
+    background-position: 
+            calc(100% - 11px) calc(1em + 2px), 
+            calc(100% - 6px) calc(1em + 2px), 100% 0;
+    background-size: 5px 5px, 5px 5px, 1.5em 2.6em;
+    background-repeat: no-repeat;
+}
+
+.button_search{
+    border: none;
+    outline: none;
+}
+
 .filtering_dropdown ul{
     display:none;
     background-color: #F1F3F8;
