@@ -146,7 +146,7 @@ table td{
     justify-content: center;
     align-items: center;
     margin-top: 30px;
-    margin-bottom: 100px;
+    margin-bottom: 35px;
 }
 
 .review_box{
@@ -241,14 +241,61 @@ select.classic {
     width: 100%;
     display: flex;
     justify-content: center;
+    margin-bottom: 100px;
+   
+}
+
+.review_list{
+    width: 1065px;
+    background-color: #F1F3F8;
+    border-radius: 20px;
+    padding: 30px;
+    margin: 0 10px 10px 10px;
+    box-shadow:  2px 2px 2px #D1D6E2;
+}
+
+.review_line{
+    width: 100%;
+    border-top: 2px solid #D1D6E2;
+    margin: 15px 0;
+    
+}
+
+.review_headline{
+    width: 100%;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.review_headline p{
+    font-weight: bold;
+    font-size: 35px;
+    color: #3174CC;
 }
 
 .review_list_box{
-    
+    margin-bottom: 20px;
+}
+
+.review_text{
+    color: #F2286D;
+}
+
+.review_list_box p{
+    word-wrap: break-word;
+    overflow: hidden;
+    margin: 13px 0;
+}
+
+@media screen and (max-width: 1090px) {
+    .review_list {
+        width: 97%;
+    }
 }
 
 @media screen and (min-width: 992px){
-    
+
     .card{
         display: grid;
         grid-template-columns: repeat(2, 1fr);

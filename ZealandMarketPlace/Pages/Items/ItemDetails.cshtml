@@ -97,19 +97,6 @@
     </div>
 </div>
 
-<div class="review_list_container">
-    <h2>Reviews</h2>
-    @foreach (var review in Model.Reviews)
-    {
-        <div class="review_list_box">
-            <h3>@review.ReviewText</h3>
-                    <h4>Number of stars: @review.Rating</h4>
-        </div>
-        
-    }
-
-</div>
-
 <div class="review_container">
     <div class="review_box">
         @{
@@ -131,9 +118,30 @@
             }
             else
             {
-                <h2>To write a rewiew, you need to buy the product first</h2>
+                <h2>To write a review, you need to buy the product first</h2>
             }
         }
+    </div>
+</div>
 
+<div class="review_headline">
+    <p>REVIEWS</p>
+</div>
+
+<div class="review_list_container">
+    <div class="review_list">
+        @foreach (var review in Model.Reviews)
+        {
+        
+            
+            <div class="review_list_box">
+                <p>@review.ReviewText</p>
+                <p><b>Number of stars:</b> <span class="review_text">@review.Rating</span></p>
+            </div>
+            <hr class="review_line"/>
+            
+        
+        
+        }
     </div>
 </div>
