@@ -8,7 +8,7 @@ namespace ZealandMarketPlace.Services.Interfaces
 {
     public interface IItemService
     {
-        IEnumerable<Item> GetAllItems();
+        IEnumerable<Item> GetAllItems(Category? category, string search);
         Item GetItem(int itemId);
         void AddItem(Item item);
         IEnumerable<Item> FilterByCategory(Category category);

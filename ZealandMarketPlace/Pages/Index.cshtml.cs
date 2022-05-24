@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -17,6 +18,9 @@ namespace ZealandMarketPlace.Pages
         private IItemService _itemService;
         public IEnumerable<Item> Items { get; set; }
         public string ImagePath { get; set; }
+        
+        [BindProperty(SupportsGet = true)]public Category? Category { get; set; }
+        [BindProperty(SupportsGet = true)]public string SearchTerm { get; set; }
 
         public int FavouriteItemId { get; set; }
 
@@ -28,7 +32,7 @@ namespace ZealandMarketPlace.Pages
 
         public void OnGet()
         {
-            Items = _itemService.GetAllItems();
+            Items = _itemService.GetAllItems(Category, SearchTerm);
         }
     }
 }

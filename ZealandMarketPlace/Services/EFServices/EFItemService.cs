@@ -7,9 +7,10 @@ using ZealandMarketPlace.Models;
 
 namespace ZealandMarketPlace.Services.EFServices
 {
-    public class EFItemService:IItemService
+    public class EFItemService : IItemService
     {
         private MarketPlaceDbContext context;
+
         public EFItemService(MarketPlaceDbContext dbContext)
         {
             context = dbContext;
@@ -20,10 +21,24 @@ namespace ZealandMarketPlace.Services.EFServices
             return context.Items.Where(item => item.UserId == userId);
         }
 
-        public IEnumerable<Item> GetAllItems()
+        public IEnumerable<Item> GetAllItems(Category? category, string search)
         {
-            return context.Items;
+            switch (category)
+            {
+                case null when string.IsNullOrEmpty(search):
+                    return context.Items;
+                case null:
+                    return context.Items.Where(i => i.Name.ToLower().Contains(search.ToLower()));
+                default:
+                {
+                    return string.IsNullOrEmpty(search)
+                        ? context.Items.Where(i => i.Category == category)
+                        : context.Items.Where(
+                            i => i.Category == category && i.Name.ToLower().Contains(search.ToLower()));
+                }
+            }
         }
+
         public Item GetItem(int itemId)
         {
             return context.Items.FirstOrDefault(i => i.ItemId == itemId);
@@ -63,13 +78,11 @@ namespace ZealandMarketPlace.Services.EFServices
         }
 
 
-
         public IEnumerable<Item> GetFavouritesList(string userId)
         {
             IEnumerable<UserFavourite> data = context.UserFavourites.Where(i => i.UserId == userId);
             var dataIds = data.Select(d => d.ItemId).ToList();
             return context.Items.Where(i => dataIds.Contains(i.ItemId));
         }
-        
     }
 }
