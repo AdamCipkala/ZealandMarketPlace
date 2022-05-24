@@ -2,5 +2,10 @@
     {
         Clothes,
         Toys,
-        Electro
+        Electro,
+        Garden,
+        Kitchen,
+        Furniture,
+        Gym,
+        Shoes,
     }
