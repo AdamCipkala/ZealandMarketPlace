@@ -17,7 +17,14 @@
 
         <div class="image_card_container">
             <div class="image_card">
-                <img src="data:image/png;base64,@Convert.ToBase64String(Model.item.ImageData)" alt="image">
+                 @if (Model.item.ImageData == null)
+                {
+                    <img class="photo" alt="photo" src="">
+                }
+                else
+                {
+                   <img class="photo" alt="photo" src="data:image/png;base64,@Convert.ToBase64String(Model.item.ImageData)">
+                }
             </div>
 
         </div>
