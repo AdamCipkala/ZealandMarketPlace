@@ -3,46 +3,47 @@ using System.Linq;
 using ZealandMarketPlace.Models;
 using ZealandMarketPlace.Services.Interfaces;
 
-namespace ZealandMarketPlace.Services.EFServices;
-
-public class EFFavouriteService : IFavouriteService
+namespace ZealandMarketPlace.Services.EFServices
 {
-    private MarketPlaceDbContext context;
-    public EFFavouriteService(MarketPlaceDbContext dbContext)
-    {
-        context = dbContext;
-    }
 
-    public IEnumerable<UserFavourite> GetUserFavourites(string userId)
+    public class EFFavouriteService : IFavouriteService
     {
-        return context.UserFavourites.Where(f => f.UserId == userId);
-    }
-
-    public IEnumerable<int> GetUserFavouritesItemsIds(string userId)
-    {
-        return GetUserFavourites(userId).Select(i => i.ItemId);
-    }
-
-    public void ToggleUserFavouriteItem(string userId, int itemId)
-    {
-        var usersFavourites = GetUserFavourites(userId);
-        var usersFavouriteIds = usersFavourites.Select(u => u.ItemId);
-        if (usersFavouriteIds.Contains(itemId))
+        private MarketPlaceDbContext context;
+        public EFFavouriteService(MarketPlaceDbContext dbContext)
         {
-            context.UserFavourites.Remove(usersFavourites.FirstOrDefault(i => i.ItemId == itemId));
+            context = dbContext;
         }
-        else
+
+        public IEnumerable<UserFavourite> GetUserFavourites(string userId)
         {
-            var newUserFavourite = new UserFavourite
+            return context.UserFavourites.Where(f => f.UserId == userId);
+        }
+
+        public IEnumerable<int> GetUserFavouritesItemsIds(string userId)
+        {
+            return GetUserFavourites(userId).Select(i => i.ItemId);
+        }
+
+        public void ToggleUserFavouriteItem(string userId, int itemId)
+        {
+            var usersFavourites = GetUserFavourites(userId);
+            var usersFavouriteIds = usersFavourites.Select(u => u.ItemId);
+            if (usersFavouriteIds.Contains(itemId))
             {
-                ItemId = itemId,
-                UserId = userId
-            };
-            context.UserFavourites.Add(newUserFavourite);
+                context.UserFavourites.Remove(usersFavourites.FirstOrDefault(i => i.ItemId == itemId));
+            }
+            else
+            {
+                var newUserFavourite = new UserFavourite
+                {
+                    ItemId = itemId,
+                    UserId = userId
+                };
+                context.UserFavourites.Add(newUserFavourite);
+            }
+
+            context.SaveChanges();
         }
 
-        context.SaveChanges();
     }
-
-    
 }
