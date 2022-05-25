@@ -2,14 +2,18 @@
 @model ZealandMarketPlace.Pages.Items.UsersItems
 
 @{
-    ViewData["Title"] = "Favourites";
+    ViewData["Title"] = "User Items";
 }
 
 <link rel="stylesheet" href="~/css/index.css">
-<div style="margin: 30px">
-    <h3>Users email: @Model.ItemUser.Email</h3>
-<h5>Users id: @Model.ItemUser.Id</h5>
+<link rel="stylesheet" href="~/css/userItem.css">
+
+
+
+<div class="review_headline">
+    <p>USER'S EMAIL: @Model.ItemUser.Email</p>
 </div>
+
 <main>
     <section class="card_section">
         @foreach (var item in Model.Items)

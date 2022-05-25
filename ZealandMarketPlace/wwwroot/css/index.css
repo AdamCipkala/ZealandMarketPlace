@@ -78,7 +78,7 @@ select.sliding {
     background-image: 
             linear-gradient(45deg, transparent 50%, #26282E 50%), 
             linear-gradient(135deg, #26282E 50%, transparent 50%), 
-            linear-gradient(to right, #3174CC, #3174CC);
+            linear-gradient(to right, #6FB0F1, #6FB0F1);
     background-position: 
             calc(100% - 11px) calc(1em + 2px), 
             calc(100% - 6px) calc(1em + 2px), 100% 0;

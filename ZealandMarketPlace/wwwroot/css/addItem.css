@@ -90,7 +90,19 @@ div.category-container > select{
 #submit {
     margin-top: 10px;
     padding: 10px;
-    background-color: rgb(37, 201, 255);
+    background-color: #4AD188;
+    color: #F1F3F8;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: 1s;
+}
+
+#submitNo {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #F2286D;
+    color: #F1F3F8;
     border-radius: 5px;
     border: none;
     cursor: pointer;
@@ -98,5 +110,9 @@ div.category-container > select{
 }
 
 #submit:hover {
-    background-color: rgba(38, 191, 255, 0.6);
+    background-color: #289d5e;
+}
+
+#submitNo:hover {
+    background-color: #df0d55;
 }
