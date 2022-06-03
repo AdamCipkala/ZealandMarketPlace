@@ -11,7 +11,7 @@
         <div>
             <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
                 <!--<div asp-validation-summary="All" class="text-danger"></div> -->
-                <div class="validation">
+                <div class="validation" style="display: flex; flex-direction: column">
                     <span asp-validation-for="Input.FirstName" class="text_information"></span>
                     <span asp-validation-for="Input.LateName" class="text_information"></span>
                     <span asp-validation-for="Input.Password"  class="text_information"></span>
@@ -26,11 +26,6 @@
                 <div class="register_item">
                     <input asp-for="Input.Email" type="text" placeholder="Email"/>
                     <input asp-for="Input.Phone" type="text" placeholder="Phone"/>
-                </div>
-                <div class="validation">
-                        <span asp-validation-for="Input.Password"  class="text_information"></span>
-                     <span asp-validation-for="Input.ConfirmPassword" class="text_information"></span> 
-
                 </div>
                 <div class="register_item">
                     <input asp-for="Input.Password" type="password"  placeholder="Password"/>
