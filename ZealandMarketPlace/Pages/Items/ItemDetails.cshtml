@@ -131,17 +131,12 @@
 <div class="review_list_container">
     <div class="review_list">
         @foreach (var review in Model.Reviews)
-        {
-        
-            
+        {      
             <div class="review_list_box">
                 <p>@review.ReviewText</p>
                 <p><b>Number of stars:</b> <span class="review_text">@review.Rating</span></p>
             </div>
             <hr class="review_line"/>
-            
-        
-        
         }
     </div>
 </div>

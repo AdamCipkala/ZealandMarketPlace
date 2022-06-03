@@ -56,19 +56,9 @@ namespace ZealandMarketPlace.Services.EFServices
             context.SaveChanges();
         }
 
-        public IEnumerable<Item> FilterByCategory(Category category)
-        {
-            return context.Items.Where(item => item.Category.Equals(category));
-        }
-
         public IEnumerable<Item> FilterByPrice(double minPrice, double maxPrice)
         {
             return context.Items.Where(item => item.Price >= minPrice && item.Price <= maxPrice);
-        }
-
-        public IEnumerable<Item> SearchItem(string name)
-        {
-            return context.Items.Where(item => item.Name.Contains(name));
         }
 
         public void DeleteItem(Item item)
