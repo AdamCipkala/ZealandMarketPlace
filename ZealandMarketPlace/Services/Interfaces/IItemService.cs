@@ -11,9 +11,7 @@ namespace ZealandMarketPlace.Services.Interfaces
         IEnumerable<Item> GetAllItems(Category? category, string search);
         Item GetItem(int itemId);
         void AddItem(Item item);
-        IEnumerable<Item> FilterByCategory(Category category);
         IEnumerable<Item> FilterByPrice(double minPrice, double maxPrice);
-        IEnumerable<Item> SearchItem(string name);
         
         IEnumerable<Item> GetAllUserItems(string userId);
         void DeleteItem(Item item);
