@@ -47,6 +47,7 @@ namespace ZealandMarketPlace.Areas.Identity.Pages.Account
         {
             [Required]
             [EmailAddress]
+            [RegularExpression(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$", ErrorMessage = "Invalid email")]  
             [Display(Name = "Email")]
             public string Email { get; set; }
             
@@ -62,6 +63,7 @@ namespace ZealandMarketPlace.Areas.Identity.Pages.Account
 
             [Required]
             [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
+            [RegularExpression("^((?=.*[a-z])(?=.*[A-Z])(?=.*\\d)).+$", ErrorMessage = "Password must contain lowercase and uppercase characters and at least one number")] 
             [DataType(DataType.Password)]
             [Display(Name = "Password")]
             public string Password { get; set; }
