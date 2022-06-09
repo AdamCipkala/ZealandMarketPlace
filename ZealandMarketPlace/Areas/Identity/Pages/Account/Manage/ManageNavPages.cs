@@ -15,6 +15,7 @@ namespace ZealandMarketPlace.Areas.Identity.Pages.Account.Manage
         public static string ChangePassword => "ChangePassword";
 
         public static string ManageItems => "ManageItems";
+        public static string ManageSubscription => "ManageSubscription";
 
         public static string IndexNavClass(ViewContext viewContext) => PageNavClass(viewContext, Index);
 
@@ -23,6 +24,7 @@ namespace ZealandMarketPlace.Areas.Identity.Pages.Account.Manage
         public static string ChangePasswordNavClass(ViewContext viewContext) => PageNavClass(viewContext, ChangePassword);
 
         public static string ManageItemsClass(ViewContext viewContext) => PageNavClass(viewContext, ManageItems);
+        public static string ManageSubscriptionClass(ViewContext viewContext) => PageNavClass(viewContext, ManageSubscription);
 
         private static string PageNavClass(ViewContext viewContext, string page)
         {

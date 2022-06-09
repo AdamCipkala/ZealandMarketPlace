@@ -18,7 +18,16 @@
     }
     
     <li>
-        <a asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">profile</a>
+        <a asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">
+            @if (User.IsInRole("Subscriber"))
+            {
+                <p>profile(subscriber)</p>
+            }
+            else
+            {
+                <p>profile</p>
+            }
+            </a>
     </li>
 
     <li>
