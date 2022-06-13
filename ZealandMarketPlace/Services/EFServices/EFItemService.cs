@@ -66,6 +66,11 @@ namespace ZealandMarketPlace.Services.EFServices
             context.Items.Remove(item);
             context.SaveChanges();
         }
+        public void DeleteItemById(int itemId)
+        {
+            context.Items.Remove(GetItem(itemId));
+            context.SaveChanges();
+        }
 
 
         public IEnumerable<Item> GetFavouritesList(string userId)

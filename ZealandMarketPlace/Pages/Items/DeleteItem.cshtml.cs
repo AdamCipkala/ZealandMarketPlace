@@ -25,7 +25,7 @@ namespace ZealandMarketPlace.Pages.Items
         }
         public IActionResult OnPost(int itemId)
         {
-            itemService.DeleteItem(itemService.GetItem(itemId));
+            itemService.DeleteItemById(itemId);
             return RedirectToPage("/Index");
         }
     }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ZealandMarketPlace.Models
 {
-    public partial class Item
+    public class Item
     {
         [Key]
         public int ItemId { get; set; }

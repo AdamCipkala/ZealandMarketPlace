@@ -23,7 +23,7 @@ public class ManageSubscription : PageModel
     {
     }
 
-    // Change the role of the user to Administrator
+    // Change the role of the user to Subscriber
     public RedirectResult OnPost()
     {
         var user = _userManager.GetUserAsync(User).Result;
